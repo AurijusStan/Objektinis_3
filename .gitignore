@@ -1,0 +1,5 @@
+*.o
+*.exe
+*.txt
+.vscode/settings.json
+.vscode/tasks.json
