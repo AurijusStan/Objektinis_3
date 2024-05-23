@@ -52,6 +52,10 @@ public:
     T* data() noexcept;
     const T* data() const noexcept;
 
+    T* begin() noexcept;
+    const T* begin() const noexcept;
+    const T* cbegin() const noexcept;
+
     Allocator get_allocator() const;
 };
 
@@ -270,6 +274,21 @@ T* Vector<T, Allocator>::data() noexcept {
 
 template <typename T, typename Allocator>
 const T* Vector<T, Allocator>::data() const noexcept {
+    return data;
+}
+
+template <typename T, typename Allocator>
+T* Vector<T, Allocator>::begin() noexcept {
+    return data;
+}
+
+template <typename T, typename Allocator>
+const T* Vector<T, Allocator>::begin() const noexcept {
+    return data;
+}
+
+template <typename T, typename Allocator>
+const T* Vector<T, Allocator>::cbegin() const noexcept {
     return data;
 }
 
