@@ -49,6 +49,8 @@ public:
     const T& back() const;
     T& at(size_t index);
     const T& at(size_t index) const;
+    T* data() noexcept;
+    const T* data() const noexcept;
 
     Allocator get_allocator() const;
 };
@@ -259,6 +261,16 @@ const T& Vector<T, Allocator>::at(size_t index) const {
         throw std::out_of_range("Index out of range");
     }
     return data[index];
+}
+
+template <typename T, typename Allocator>
+T* Vector<T, Allocator>::data() noexcept {
+    return data;
+}
+
+template <typename T, typename Allocator>
+const T* Vector<T, Allocator>::data() const noexcept {
+    return data;
 }
 
 template <typename T, typename Allocator>
