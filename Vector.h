@@ -3,38 +3,29 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <utility>
 #include <initializer_list>
-#include <algorithm> // For std::copy
+#include <algorithm>
 #include <memory> // For std::allocator
 
-template <typename T, typename Allocator = std::allocator<T>>
+template <typename T>
 class Vector {
 private:
-    T* data;
-    size_t size;
-    size_t capacity;
-    Allocator allocator;
+    T* data_;
+    size_t size_;
+    size_t capacity_;
 
     void resize(size_t new_capacity);
 
 public:
-    Vector() : data(nullptr), size(0), capacity(0), allocator(Allocator()) {}
-    Vector(const Vector& other); // Copy constructor
-    Vector(Vector&& other) noexcept; // Move constructor
-    Vector(std::initializer_list<T> init_list); // Initializer list constructor
-    ~Vector();
+    Vector() : data_(nullptr), size_(0), capacity_(0) {}
+    Vector(const Vector& other);
+    Vector(Vector&& other) noexcept;
+    Vector(std::initializer_list<T> init_list);
+    ~Vector() { delete[] data_; }
 
-    Vector& operator=(const Vector& other); // Copy assignment operator
-    Vector& operator=(Vector&& other) noexcept; // Move assignment operator
-    Vector& operator=(std::initializer_list<T> init_list); // Initializer list assignment operator
-
-    void assign(size_t count, const T& value); // Fill with count copies of value
-    void assign(std::initializer_list<T> init_list); // From initializer list
-
-    template <typename InputIt>
-    void assign_range(InputIt first, InputIt last); // From range
-
+    Vector& operator=(const Vector& other);
+    Vector& operator=(Vector&& other) noexcept;
+    Vector& operator=(std::initializer_list<T> init_list);
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
 
@@ -47,51 +38,62 @@ public:
     const T& front() const;
     T& back();
     const T& back() const;
+    void assign(size_t count, const T& value);
+    template <typename InputIt>
+    void assign(InputIt first, InputIt last);
+
     T& at(size_t index);
     const T& at(size_t index) const;
     T* data() noexcept;
     const T* data() const noexcept;
+    std::allocator<T> get_allocator() const;
 
-    T* begin() noexcept;
-    const T* begin() const noexcept;
-    const T* cbegin() const noexcept;
+    class Iterator {
+    private:
+        T* ptr;
+    public:
+        Iterator(T* p = nullptr) : ptr(p) {}
 
-    Allocator get_allocator() const;
+        T& operator*() const { return *ptr; }
+        T* operator->() { return ptr; }
+
+        Iterator& operator++() { ++ptr; return *this; }
+        Iterator operator++(int) { Iterator tmp = *this; ++(*this); return tmp; }
+
+        bool operator==(const Iterator& other) const { return ptr == other.ptr; }
+        bool operator!=(const Iterator& other) const { return ptr != other.ptr; }
+    };
+
+    Iterator begin() noexcept { return Iterator(data_); }
+    Iterator end() noexcept { return Iterator(data_ + size_); }
+    Iterator begin() const noexcept { return Iterator(data_); }
+    Iterator end() const noexcept { return Iterator(data_ + size_); }
+    Iterator cbegin() const noexcept { return Iterator(data_); }
+    Iterator cend() const noexcept { return Iterator(data_ + size_); }
 };
 
-template <typename T, typename Allocator>
-Vector<T, Allocator>::Vector(const Vector& other) : data(nullptr), size(other.size), capacity(other.capacity), allocator(other.allocator) {
-    if (capacity > 0) {
-        data = allocator.allocate(capacity);
-        for (size_t i = 0; i < size; ++i) {
-            allocator.construct(&data[i], other.data[i]);
-        }
+template <typename T>
+Vector<T>::Vector(const Vector& other) : data_(nullptr), size_(other.size_), capacity_(other.capacity_) {
+    if (capacity_ > 0) {
+        data_ = new T[capacity_];
+        std::copy(other.data_, other.data_ + size_, data_);
     }
 }
 
-template <typename T, typename Allocator>
-Vector<T, Allocator>::Vector(Vector&& other) noexcept : data(other.data), size(other.size), capacity(other.capacity), allocator(std::move(other.allocator)) {
-    other.data = nullptr;
-    other.size = 0;
-    other.capacity = 0;
+template <typename T>
+Vector<T>::Vector(Vector&& other) noexcept : data_(other.data_), size_(other.size_), capacity_(other.capacity_) {
+    other.data_ = nullptr;
+    other.size_ = 0;
+    other.capacity_ = 0;
 }
 
-template <typename T, typename Allocator>
-Vector<T, Allocator>::Vector(std::initializer_list<T> init_list) : data(nullptr), size(init_list.size()), capacity(init_list.size()), allocator(Allocator()) {
-    data = allocator.allocate(capacity);
-    std::uninitialized_copy(init_list.begin(), init_list.end(), data);
+template <typename T>
+Vector<T>::Vector(std::initializer_list<T> init_list) : data_(new T[init_list.size()]), size_(init_list.size()), capacity_(init_list.size()) {
+    std::copy(init_list.begin(), init_list.end(), data_);
 }
 
-template <typename T, typename Allocator>
-Vector<T, Allocator>::~Vector() {
-    for (size_t i = 0; i < size; ++i) {
-        allocator.destroy(&data[i]);
-    }
-    allocator.deallocate(data, capacity);
-}
-
-template <typename T, typename Allocator>
-Vector<T, Allocator>& Vector<T, Allocator>::operator=(const Vector& other) {
+template <typename T>
+Vector<T>& Vector<T>::operator=(const Vector& other) {
     if (this != &other) {
         Vector temp(other);
         swap(temp);
@@ -99,202 +101,169 @@ Vector<T, Allocator>& Vector<T, Allocator>::operator=(const Vector& other) {
     return *this;
 }
 
-template <typename T, typename Allocator>
-Vector<T, Allocator>& Vector<T, Allocator>::operator=(Vector&& other) noexcept {
+template <typename T>
+Vector<T>& Vector<T>::operator=(Vector&& other) noexcept {
     if (this != &other) {
-        for (size_t i = 0; i < size; ++i) {
-            allocator.destroy(&data[i]);
-        }
-        allocator.deallocate(data, capacity);
-
-        data = other.data;
-        size = other.size;
-        capacity = other.capacity;
-        allocator = std::move(other.allocator);
-
-        other.data = nullptr;
-        other.size = 0;
-        other.capacity = 0;
+        delete[] data_;
+        data_ = other.data_;
+        size_ = other.size_;
+        capacity_ = other.capacity_;
+        other.data_ = nullptr;
+        other.size_ = 0;
+        other.capacity_ = 0;
     }
     return *this;
 }
 
-template <typename T, typename Allocator>
-Vector<T, Allocator>& Vector<T, Allocator>::operator=(std::initializer_list<T> init_list) {
-    Vector temp(init_list);
-    swap(temp);
+template <typename T>
+Vector<T>& Vector<T>::operator=(std::initializer_list<T> init_list) {
+    delete[] data_;
+    size_ = init_list.size();
+    capacity_ = init_list.size();
+    data_ = new T[capacity_];
+    std::copy(init_list.begin(), init_list.end(), data_);
     return *this;
 }
 
-template <typename T, typename Allocator>
-void Vector<T, Allocator>::assign(size_t count, const T& value) {
-    Vector temp;
-    temp.data = allocator.allocate(count);
-    temp.size = count;
-    temp.capacity = count;
-    for (size_t i = 0; i < count; ++i) {
-        temp.allocator.construct(&temp.data[i], value);
+template <typename T>
+void Vector<T>::swap(Vector& other) noexcept {
+    std::swap(data_, other.data_);
+    std::swap(size_, other.size_);
+    std::swap(capacity_, other.capacity_);
+}
+
+template <typename T>
+void Vector<T>::push_back(const T& value) {
+    if (size_ == capacity_) {
+        resize(capacity_ == 0 ? 1 : capacity_ * 2);
     }
-    swap(temp);
+    data_[size_++] = value;
 }
 
-template <typename T, typename Allocator>
-void Vector<T, Allocator>::assign(std::initializer_list<T> init_list) {
-    Vector temp(init_list);
-    swap(temp);
+template <typename T>
+void Vector<T>::resize(size_t new_capacity) {
+    T* new_data = new T[new_capacity];
+    std::copy(data_, data_ + size_, new_data);
+    delete[] data_;
+    data_ = new_data;
+    capacity_ = new_capacity;
 }
 
-template <typename T, typename Allocator>
-template <typename InputIt>
-void Vector<T, Allocator>::assign_range(InputIt first, InputIt last) {
-    Vector temp;
-    size_t new_size = std::distance(first, last);
-    temp.data = allocator.allocate(new_size);
-    temp.size = new_size;
-    temp.capacity = new_size;
-    std::uninitialized_copy(first, last, temp.data);
-    swap(temp);
-}
-
-template <typename T, typename Allocator>
-void Vector<T, Allocator>::swap(Vector& other) noexcept {
-    std::swap(data, other.data);
-    std::swap(size, other.size);
-    std::swap(capacity, other.capacity);
-    std::swap(allocator, other.allocator);
-}
-
-template <typename T, typename Allocator>
-void Vector<T, Allocator>::push_back(const T& value) {
-    if (size == capacity) {
-        resize(capacity == 0 ? 1 : capacity * 2);
-    }
-    allocator.construct(&data[size++], value);
-}
-
-template <typename T, typename Allocator>
-void Vector<T, Allocator>::resize(size_t new_capacity) {
-    T* new_data = allocator.allocate(new_capacity);
-    for (size_t i = 0; i < size; ++i) {
-        allocator.construct(&new_data[i], std::move(data[i]));
-        allocator.destroy(&data[i]);
-    }
-    allocator.deallocate(data, capacity);
-    data = new_data;
-    capacity = new_capacity;
-}
-
-template <typename T, typename Allocator>
-void Vector<T, Allocator>::pop_back() {
-    if (size > 0) {
-        allocator.destroy(&data[--size]);
+template <typename T>
+void Vector<T>::pop_back() {
+    if (size_ > 0) {
+        --size_;
     } else {
         throw std::out_of_range("Vector is empty");
     }
 }
 
-template <typename T, typename Allocator>
-T& Vector<T, Allocator>::operator[](size_t index) {
-    if (index >= size) {
+template <typename T>
+T& Vector<T>::operator[](size_t index) {
+    if (index >= size_) {
         throw std::out_of_range("Index out of range");
     }
-    return data[index];
+    return data_[index];
 }
 
-template <typename T, typename Allocator>
-const T& Vector<T, Allocator>::operator[](size_t index) const {
-    if (index >= size) {
+template <typename T>
+const T& Vector<T>::operator[](size_t index) const {
+    if (index >= size_) {
         throw std::out_of_range("Index out of range");
     }
-    return data[index];
+    return data_[index];
 }
 
-template <typename T, typename Allocator>
-size_t Vector<T, Allocator>::getSize() const {
-    return size;
+template <typename T>
+size_t Vector<T>::getSize() const {
+    return size_;
 }
 
-template <typename T, typename Allocator>
-bool Vector<T, Allocator>::empty() const {
-    return size == 0;
+template <typename T>
+bool Vector<T>::empty() const {
+    return size_ == 0;
 }
 
-template <typename T, typename Allocator>
-T& Vector<T, Allocator>::front() {
-    if (size == 0) {
+template <typename T>
+T& Vector<T>::front() {
+    if (size_ == 0) {
         throw std::out_of_range("Vector is empty");
     }
-    return data[0];
+    return data_[0];
 }
 
-template <typename T, typename Allocator>
-const T& Vector<T, Allocator>::front() const {
-    if (size == 0) {
+template <typename T>
+const T& Vector<T>::front() const {
+    if (size_ == 0) {
         throw std::out_of_range("Vector is empty");
     }
-    return data[0];
+    return data_[0];
 }
 
-template <typename T, typename Allocator>
-T& Vector<T, Allocator>::back() {
-    if (size == 0) {
+template <typename T>
+T& Vector<T>::back() {
+    if (size_ == 0) {
         throw std::out_of_range("Vector is empty");
     }
-    return data[size - 1];
+    return data_[size_ - 1];
 }
 
-template <typename T, typename Allocator>
-const T& Vector<T, Allocator>::back() const {
-    if (size == 0) {
+template <typename T>
+const T& Vector<T>::back() const {
+    if (size_ == 0) {
         throw std::out_of_range("Vector is empty");
     }
-    return data[size - 1];
+    return data_[size_ - 1];
 }
 
-template <typename T, typename Allocator>
-T& Vector<T, Allocator>::at(size_t index) {
-    if (index >= size) {
+template <typename T>
+void Vector<T>::assign(size_t count, const T& value) {
+    delete[] data_;
+    size_ = count;
+    capacity_ = count;
+    data_ = new T[capacity_];
+    std::fill(data_, data_ + size_, value);
+}
+
+template <typename T>
+template <typename InputIt>
+void Vector<T>::assign(InputIt first, InputIt last) {
+    delete[] data_;
+    size_ = std::distance(first, last);
+    capacity_ = size_;
+    data_ = new T[capacity_];
+    std::copy(first, last, data_);
+}
+
+template <typename T>
+T& Vector<T>::at(size_t index) {
+    if (index >= size_) {
         throw std::out_of_range("Index out of range");
     }
-    return data[index];
+    return data_[index];
 }
 
-template <typename T, typename Allocator>
-const T& Vector<T, Allocator>::at(size_t index) const {
-    if (index >= size) {
+template <typename T>
+const T& Vector<T>::at(size_t index) const {
+    if (index >= size_) {
         throw std::out_of_range("Index out of range");
     }
-    return data[index];
+    return data_[index];
 }
 
-template <typename T, typename Allocator>
-T* Vector<T, Allocator>::data() noexcept {
-    return data;
+template <typename T>
+T* Vector<T>::data() noexcept {
+    return data_;
 }
 
-template <typename T, typename Allocator>
-const T* Vector<T, Allocator>::data() const noexcept {
-    return data;
+template <typename T>
+const T* Vector<T>::data() const noexcept {
+    return data_;
 }
 
-template <typename T, typename Allocator>
-T* Vector<T, Allocator>::begin() noexcept {
-    return data;
+template <typename T>
+std::allocator<T> Vector<T>::get_allocator() const {
+    return std::allocator<T>();
 }
 
-template <typename T, typename Allocator>
-const T* Vector<T, Allocator>::begin() const noexcept {
-    return data;
-}
-
-template <typename T, typename Allocator>
-const T* Vector<T, Allocator>::cbegin() const noexcept {
-    return data;
-}
-
-template <typename T, typename Allocator>
-Allocator Vector<T, Allocator>::get_allocator() const {
-    return allocator;
-}
-
-#endif
+#endif // VECTOR_H
