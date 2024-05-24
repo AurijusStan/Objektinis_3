@@ -6,6 +6,7 @@
 #include <initializer_list>
 #include <algorithm>
 #include <memory> // For std::allocator
+#include <iterator> // For std::reverse_iterator
 
 template <typename T>
 class Vector {
@@ -48,63 +49,23 @@ public:
     const T* data() const noexcept;
     std::allocator<T> get_allocator() const;
 
-    class Iterator {
-    private:
-        T* ptr;
-    public:
-        using difference_type = std::ptrdiff_t;
-        using iterator_category = std::random_access_iterator_tag;
-        using value_type = T;
-        using pointer = T*;
-        using reference = T&;
+    using iterator = T*;
+    using const_iterator = const T*;
+    using reverse_iterator = std::reverse_iterator<iterator>;
+    using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
-        Iterator(T* p = nullptr) : ptr(p) {}
-
-        T& operator*() const { return *ptr; }
-        T* operator->() { return ptr; }
-
-        Iterator& operator++() { ++ptr; return *this; }
-        Iterator operator++(int) { Iterator tmp = *this; ++(*this); return tmp; }
-
-        bool operator==(const Iterator& other) const { return ptr == other.ptr; }
-        bool operator!=(const Iterator& other) const { return ptr != other.ptr; }
-    };
-
-    Iterator begin() noexcept { return Iterator(data_); }
-    Iterator end() noexcept { return Iterator(data_ + size_); }
-    Iterator begin() const noexcept { return Iterator(data_); }
-    Iterator end() const noexcept { return Iterator(data_ + size_); }
-    Iterator cbegin() const noexcept { return Iterator(data_); }
-    Iterator cend() const noexcept { return Iterator(data_ + size_); }
-
-    class ReverseIterator {
-    private:
-        T* ptr;
-    public:
-        using difference_type = std::ptrdiff_t;
-        using iterator_category = std::random_access_iterator_tag;
-        using value_type = T;
-        using pointer = T*;
-        using reference = T&;
-
-        ReverseIterator(T* p = nullptr) : ptr(p) {}
-
-        T& operator*() const { return *ptr; }
-        T* operator->() { return ptr; }
-
-        ReverseIterator& operator++() { --ptr; return *this; }
-        ReverseIterator operator++(int) { ReverseIterator tmp = *this; --(*this); return tmp; }
-
-        bool operator==(const ReverseIterator& other) const { return ptr == other.ptr; }
-        bool operator!=(const ReverseIterator& other) const { return ptr != other.ptr; }
-    };
-
-    ReverseIterator rbegin() noexcept { return ReverseIterator(data_ + size_ - 1); }
-    ReverseIterator rend() noexcept { return ReverseIterator(data_ - 1); }
-    ReverseIterator rbegin() const noexcept { return ReverseIterator(data_ + size_ - 1); }
-    ReverseIterator rend() const noexcept { return ReverseIterator(data_ - 1); }
-    ReverseIterator crbegin() const noexcept { return ReverseIterator(data_ + size_ - 1); }
-    ReverseIterator crend() const noexcept { return ReverseIterator(data_ - 1); }
+    iterator begin() noexcept { return data_; }
+    const_iterator begin() const noexcept { return data_; }
+    iterator end() noexcept { return data_ + size_; }
+    const_iterator end() const noexcept { return data_ + size_; }
+    const_iterator cbegin() const noexcept { return data_; }
+    const_iterator cend() const noexcept { return data_ + size_; }
+    reverse_iterator rbegin() noexcept { return reverse_iterator(end()); }
+    const_reverse_iterator rbegin() const noexcept { return const_reverse_iterator(end()); }
+    reverse_iterator rend() noexcept { return reverse_iterator(begin()); }
+    const_reverse_iterator rend() const noexcept { return const_reverse_iterator(begin()); }
+    const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
+    const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
 };
 
 template <typename T>

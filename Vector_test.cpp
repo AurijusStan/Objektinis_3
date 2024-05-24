@@ -16,5 +16,12 @@ int main() {
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
     std::cout << "Sum of elements: " << sum << std::endl;
 
+    // Print the vector in reverse
+    std::cout << "Vector elements in reverse: ";
+    for (auto it = nums.rbegin(); it != nums.rend(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
