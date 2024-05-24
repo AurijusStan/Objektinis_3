@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <memory> // For std::allocator
 #include <iterator> // For std::reverse_iterator
+#include <limits> // For std::numeric_limits
 
 template <typename T>
 class Vector {
@@ -34,6 +35,7 @@ public:
     void push_back(const T& value);
     void pop_back();
     size_t getSize() const;
+    size_t max_size() const;
     bool empty() const;
     T& front();
     const T& front() const;
@@ -260,6 +262,11 @@ const T* Vector<T>::data() const noexcept {
 template <typename T>
 std::allocator<T> Vector<T>::get_allocator() const {
     return std::allocator<T>();
+}
+
+template <typename T>
+size_t Vector<T>::max_size() const {
+    return std::numeric_limits<size_t>::max() / sizeof(T);
 }
 
 #endif // VECTOR_H
