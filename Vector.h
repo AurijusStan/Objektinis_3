@@ -16,8 +16,6 @@ private:
     size_t size_;
     size_t capacity_;
 
-    void resize(size_t new_capacity);
-
 public:
     Vector() : data_(nullptr), size_(0), capacity_(0) {}
     Vector(const Vector& other);
@@ -30,12 +28,14 @@ public:
     Vector& operator=(std::initializer_list<T> init_list);
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
-
+    
+    void reserve(size_t new_capacity);
     void swap(Vector& other) noexcept;
     void push_back(const T& value);
     void pop_back();
     size_t getSize() const;
     size_t max_size() const;
+    size_t capacity() const; // Added capacity function
     bool empty() const;
     T& front();
     const T& front() const;
@@ -68,6 +68,8 @@ public:
     const_reverse_iterator rend() const noexcept { return const_reverse_iterator(begin()); }
     const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
     const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
+
+    void resize(size_t count);
 };
 
 template <typename T>
@@ -133,18 +135,31 @@ void Vector<T>::swap(Vector& other) noexcept {
 template <typename T>
 void Vector<T>::push_back(const T& value) {
     if (size_ == capacity_) {
-        resize(capacity_ == 0 ? 1 : capacity_ * 2);
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
     data_[size_++] = value;
 }
 
 template <typename T>
-void Vector<T>::resize(size_t new_capacity) {
-    T* new_data = new T[new_capacity];
-    std::copy(data_, data_ + size_, new_data);
-    delete[] data_;
-    data_ = new_data;
-    capacity_ = new_capacity;
+void Vector<T>::reserve(size_t new_capacity) {
+    if (new_capacity > capacity_) {
+        T* new_data = new T[new_capacity];
+        std::copy(data_, data_ + size_, new_data);
+        delete[] data_;
+        data_ = new_data;
+        capacity_ = new_capacity;
+    }
+}
+
+template <typename T>
+void Vector<T>::resize(size_t count) {
+    if (count > capacity_) {
+        reserve(count);
+    }
+    if (count > size_) {
+        std::fill(data_ + size_, data_ + count, T());
+    }
+    size_ = count;
 }
 
 template <typename T>
@@ -175,6 +190,11 @@ const T& Vector<T>::operator[](size_t index) const {
 template <typename T>
 size_t Vector<T>::getSize() const {
     return size_;
+}
+
+template <typename T>
+size_t Vector<T>::capacity() const {
+    return capacity_;
 }
 
 template <typename T>
