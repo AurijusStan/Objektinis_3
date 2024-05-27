@@ -38,6 +38,7 @@ public:
     size_t max_size() const;
     size_t capacity() const;
     bool empty() const;
+    void clear() noexcept;
     T& front();
     const T& front() const;
     T& back();
@@ -212,6 +213,11 @@ size_t Vector<T>::capacity() const {
 template <typename T>
 bool Vector<T>::empty() const {
     return size_ == 0;
+}
+
+template <typename T>
+void Vector<T>::clear() noexcept {
+    size_ = 0;
 }
 
 template <typename T>
