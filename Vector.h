@@ -70,6 +70,7 @@ public:
     const_reverse_iterator rend() const noexcept { return const_reverse_iterator(begin()); }
     const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
     const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
+    iterator insert(const_iterator pos, const T& value);
 
     void resize(size_t count);
 };
@@ -305,6 +306,20 @@ std::allocator<T> Vector<T>::get_allocator() const {
 template <typename T>
 size_t Vector<T>::max_size() const {
     return std::numeric_limits<size_t>::max() / sizeof(T);
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& value) {
+    size_t index = pos - cbegin(); 
+    if (size_ == capacity_) {
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2); 
+    }
+    for (size_t i = size_; i > index; --i) {
+        data_[i] = std::move(data_[i - 1]); 
+    }
+    data_[index] = value;
+    ++size_;
+    return data_ + index;
 }
 
 #endif // VECTOR_H

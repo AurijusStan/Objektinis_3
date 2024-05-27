@@ -36,5 +36,13 @@ int main() {
 
     std::cout << "capacity after shrink: " << nums.capacity() << std::endl;
 
+    nums.insert(nums.begin()+4, 21);
+
+    std::cout << "Vector elements after resize: ";
+    for (auto it = nums.begin(); it != nums.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
