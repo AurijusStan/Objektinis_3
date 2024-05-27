@@ -30,12 +30,13 @@ public:
     const T& operator[](size_t index) const;
     
     void reserve(size_t new_capacity);
+    void shrink_to_fit(); 
     void swap(Vector& other) noexcept;
     void push_back(const T& value);
     void pop_back();
     size_t getSize() const;
     size_t max_size() const;
-    size_t capacity() const; // Added capacity function
+    size_t capacity() const;
     bool empty() const;
     T& front();
     const T& front() const;
@@ -148,6 +149,17 @@ void Vector<T>::reserve(size_t new_capacity) {
         delete[] data_;
         data_ = new_data;
         capacity_ = new_capacity;
+    }
+}
+
+template <typename T>
+void Vector<T>::shrink_to_fit() {
+    if (capacity_ > size_) {
+        T* new_data = new T[size_];
+        std::copy(data_, data_ + size_, new_data);
+        delete[] data_;
+        data_ = new_data;
+        capacity_ = size_;
     }
 }
 

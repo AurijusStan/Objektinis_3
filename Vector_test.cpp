@@ -32,5 +32,9 @@ int main() {
 
     std::cout << "capacity after reserve: " << nums.capacity() << std::endl;
 
+    nums.shrink_to_fit();
+
+    std::cout << "capacity after shrink: " << nums.capacity() << std::endl;
+
     return 0;
 }
