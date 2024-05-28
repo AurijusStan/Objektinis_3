@@ -5,15 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Objektinis: Objektinio užduotis 2</title>
+<title>Objektinis_3: Objektinio užduotis 3</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -27,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Objektinis<span id="projectnumber">&#160;v2.0</span>
+   <div id="projectname">Objektinis_3
    </div>
   </td>
  </tr>
@@ -52,23 +48,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,8 +69,9 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(); });
 </div>
 </div>
 
+</div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Objektinio užduotis 2</div></div>
+  <div class="headertitle"><div class="title">Objektinio užduotis 3</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> Programa skaičiuojanti galutinį studento rezultatą pagal pateiktus namų darbų ir egzamino rezultatus.</p>
@@ -276,32 +256,64 @@ Release'ų istorija</h1>
 <li>v1.1: programa perdaryta naudojant custom klases o ne struktūras.</li>
 <li>v1.2: pritaikyta rule of five, sukurti move ir copy operatoriai</li>
 <li>v1.5: klasė padalinta į dvi dalis, viena iš kurių abstrakti bazinė.</li>
+<li>v2.0: su doxygen sukurta dokumentacija ir padaryti unit testai.</li>
+<li>v3.0: sukurtas <a class="el" href="class_vector.html">Vector</a> konteineris, testai, setup failas.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md18"></a>
-Tyrimas</h1>
-<p>Buvo atliktas mokinių dalijimo į 2 konteinerius skirtingų strategijų testavimas, kuris padėjo paoptimizuoti greitį naudojant list ir deque, bet sparta naudojant vector sumažėjo. Visais atvejais 1 stratejija buvo pati lėčiausia ir taip pat ji prasčiausia programos naudojamos vietos atžvilgiu.</p>
+Funkcijų paaiškinimas</h1>
+<ul>
+<li>front(): grąžiną pirmo vektoriaus nario reikšmę.</li>
+<li>insert(): į pasirinktą vektoriaus vietą įterpia objektą.</li>
+<li>shrink_to_fit(): sumažina talpą, kad ji būtu tokia, koks ir dydis.</li>
+<li>pop_back(): pašalina paskutinį vektoriaus elementą, bet nesumažina jo talpos.</li>
+<li>begin(): grąžina iteratorių į pirmą vektoriaus narį.</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md19"></a>
+Naujo vektoriaus konteinerio palyginimas</h1>
+<h3><a class="anchor" id="autotoc_md20"></a>
+Atminties perskirstymai</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Elementų sk.   </th><th class="markdownTableHeadNone">std::vector   </th><th class="markdownTableHeadNone"><a class="el" href="class_vector.html">Vector</a>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">100000000   </td><td class="markdownTableBodyNone">27   </td><td class="markdownTableBodyNone">28   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md21"></a>
+Trukmė užpildant vektorių (5 testų vidurkis)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Elementų sk.   </th><th class="markdownTableHeadNone">std::vector (ms)   </th><th class="markdownTableHeadNone"><a class="el" href="class_vector.html">Vector</a> (ms)    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">10000   </td><td class="markdownTableBodyNone">0   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">100000   </td><td class="markdownTableBodyNone">2   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">1000000   </td><td class="markdownTableBodyNone">16   </td><td class="markdownTableBodyNone">4    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">10000000   </td><td class="markdownTableBodyNone">170   </td><td class="markdownTableBodyNone">41    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">100000000   </td><td class="markdownTableBodyNone">1557   </td><td class="markdownTableBodyNone">433   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Kompiuterio paruošimas programai</h1>
 <p>Čia gidas Windows sistemoms.</p><ul>
 <li>Atsisiųskite c++ kompiliatorių. Gidas čia: <a href="https://www.geeksforgeeks.org/installing-mingw-tools-for-c-c-and-changing-environment-variable/">https://www.geeksforgeeks.org/installing-mingw-tools-for-c-c-and-changing-environment-variable/</a>.</li>
 <li>Atsisiųskite make. Gidas čia: <a href="https://linuxhint.com/install-use-make-windows/">https://linuxhint.com/install-use-make-windows/</a>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Programos diegimas ir paleidimas</h1>
 <ol type="1">
 <li>Atsisiųskite programos kodą iš repozitorijos.</li>
 <li>Terminale pasiekite atsisiuntimo aplanką.</li>
-<li>terminale parašykite "make" (pirmą kartą, kai leidžiate programą).</li>
+<li>Terminale parašykite "make" (pirmą kartą, kai leidžiate programą).</li>
+<li>Jei norite patikrinti testus, naudokite "make test".</li>
 <li>Paleiskite programą terminale įvesdami .\prog.exe (Windows) arba .\prog (Linux) </li>
 </ol>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>
