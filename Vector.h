@@ -31,17 +31,30 @@ public:
     const T& operator[](size_t index) const;
     
     void reserve(size_t new_capacity) {
-        if (new_capacity > capacity_) {
-            T* new_data = allocator_.allocate(new_capacity);
-            for (size_t i = 0; i < size_; ++i) {
-                allocator_.construct(new_data + i, std::move(data_[i]));
-                allocator_.destroy(data_ + i);
-            }
-            allocator_.deallocate(data_, capacity_);
-            data_ = new_data;
-            capacity_ = new_capacity;
+    if (new_capacity > capacity_) {
+        T* new_data = allocator_.allocate(new_capacity);
+        for (size_t i = 0; i < size_; ++i) {
+            allocator_.construct(new_data + i, std::move(data_[i]));
+            allocator_.destroy(data_ + i);
+        }
+        allocator_.deallocate(data_, capacity_);
+        data_ = new_data;
+        capacity_ = new_capacity;
+    } else if (new_capacity < capacity_) {
+        T* new_data = allocator_.allocate(new_capacity);
+        for (size_t i = 0; i < new_capacity; ++i) {
+            allocator_.construct(new_data + i, std::move(data_[i]));
+            allocator_.destroy(data_ + i);
+        }
+        allocator_.deallocate(data_, capacity_);
+        data_ = new_data;
+        capacity_ = new_capacity;
+        if (size_ > new_capacity) {
+            size_ = new_capacity;
         }
     }
+}
+
     void shrink_to_fit(); 
     void resize(size_t count);
     void resize(size_t count, const T& x);
@@ -222,7 +235,7 @@ void Vector<T>::resize(size_t count) {
 }
 
 template <typename T>
-void resize(size_t count, const T& x) {
+void Vector<T>::resize(size_t count, const T& x) {
     if (count > capacity_) {
         reserve(count);
     }

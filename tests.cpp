@@ -87,8 +87,8 @@ TEST_CASE("Push_back")
                 v.push_back(i);
         }
 
-        CHECK(v.getSize() == 4);
-        CHECK(v[3] == 5);
+        CHECK(v.getSize() == 5);
+        CHECK(v[3] == 3);
         }
 TEST_CASE("Pop_back")
         {
@@ -97,9 +97,33 @@ TEST_CASE("Pop_back")
                 v.push_back(i);
         }
 
-        CHECK(v.getSize() == 4);
+        CHECK(v.getSize() == 5);
 
         v.pop_back();
 
         CHECK(v.getSize() == 4);
+        }
+TEST_CASE("front/back/at")
+        {
+        Vector<int> v;
+        for(int i=0; i<5; i++){
+                v.push_back(i);
+        }
+
+        CHECK(v[1] == 1);
+        CHECK(v.front() == 0);
+        CHECK(v.back() == 4);
+        CHECK(v.at(2) == 3);
+        }
+TEST_CASE("front/back/at")
+        {
+        Vector<int> v;
+        for(int i=0; i<5; i++){
+                v.push_back(i);
+        }
+
+        CHECK(v[1] == 1);
+        CHECK(v.front() == 0);
+        CHECK(v.back() == 4);
+        CHECK(v.at(2) == 3);
         }
