@@ -5,9 +5,9 @@
 #include <stdexcept>
 #include <initializer_list>
 #include <algorithm>
-#include <memory> // For std::allocator
-#include <iterator> // For std::reverse_iterator
-#include <limits> // For std::numeric_limits
+#include <memory> 
+#include <iterator>
+#include <limits>
 
 template <typename T>
 class Vector {
@@ -32,7 +32,7 @@ public:
     void reserve(size_t new_capacity);
     void shrink_to_fit(); 
     void swap(Vector& other) noexcept;
-    void push_back(const T& value);
+    void push_back(const T& x);
     void pop_back();
     size_t getSize() const;
     size_t max_size() const;
@@ -43,7 +43,7 @@ public:
     const T& front() const;
     T& back();
     const T& back() const;
-    void assign(size_t count, const T& value);
+    void assign(size_t count, const T& x);
     template <typename InputIt>
     void assign(InputIt first, InputIt last);
 
@@ -70,7 +70,12 @@ public:
     const_reverse_iterator rend() const noexcept { return const_reverse_iterator(begin()); }
     const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
     const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
-    iterator insert(const_iterator pos, const T& value);
+    iterator insert(const_iterator pos, const T& x);
+    iterator insert(const_iterator pos, T&& x);
+    iterator insert(const_iterator pos, size_t count, const T& x);
+    template <class InputIt>
+    iterator insert(const_iterator pos, InputIt first, InputIt last);
+    iterator insert(const_iterator pos, std::initializer_list<T> ilist);
 
     void resize(size_t count);
 };
@@ -136,11 +141,11 @@ void Vector<T>::swap(Vector& other) noexcept {
 }
 
 template <typename T>
-void Vector<T>::push_back(const T& value) {
+void Vector<T>::push_back(const T& x) {
     if (size_ == capacity_) {
         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
-    data_[size_++] = value;
+    data_[size_++] = x;
 }
 
 template <typename T>
@@ -254,12 +259,12 @@ const T& Vector<T>::back() const {
 }
 
 template <typename T>
-void Vector<T>::assign(size_t count, const T& value) {
+void Vector<T>::assign(size_t count, const T& x) {
     delete[] data_;
     size_ = count;
     capacity_ = count;
     data_ = new T[capacity_];
-    std::fill(data_, data_ + size_, value);
+    std::fill(data_, data_ + size_, x);
 }
 
 template <typename T>
@@ -309,17 +314,80 @@ size_t Vector<T>::max_size() const {
 }
 
 template <typename T>
-typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& value) {
-    size_t index = pos - cbegin(); 
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& x) {
+    size_t index = pos - cbegin();
     if (size_ == capacity_) {
-        reserve(capacity_ == 0 ? 1 : capacity_ * 2); 
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
     for (size_t i = size_; i > index; --i) {
-        data_[i] = std::move(data_[i - 1]); 
+        data_[i] = std::move(data_[i - 1]);
     }
-    data_[index] = value;
+    data_[index] = x;
     ++size_;
     return data_ + index;
 }
 
-#endif // VECTOR_H
+template <typename T>
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, T&& x) {
+    size_t index = pos - cbegin();
+    if (size_ == capacity_) {
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    for (size_t i = size_; i > index; --i) {
+        data_[i] = std::move(data_[i - 1]);
+    }
+    data_[index] = std::move(x);
+    ++size_;
+    return data_ + index;
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, size_t count, const T& x) {
+    size_t index = pos - cbegin();
+    if (size_ + count > capacity_) {
+        reserve(capacity_ + count);
+    }
+    for (size_t i = size_ + count - 1; i >= index + count; --i) {
+        data_[i] = std::move(data_[i - count]);
+    }
+    for (size_t i = 0; i < count; ++i) {
+        data_[index + i] = x;
+    }
+    size_ += count;
+    return data_ + index;
+}
+
+template <typename T>
+template <class InputIt>
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, InputIt first, InputIt last) {
+    size_t index = pos - cbegin();
+    size_t count = std::distance(first, last);
+    if (size_ + count > capacity_) {
+        reserve(capacity_ + count);
+    }
+    for (size_t i = size_ + count - 1; i >= index + count; --i) {
+        data_[i] = std::move(data_[i - count]);
+    }
+    for (size_t i = 0; i < count; ++i, ++first) {
+        data_[index + i] = *first;
+    }
+    size_ += count;
+    return data_ + index;
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, std::initializer_list<T> ilist) {
+    size_t index = pos - cbegin();
+    size_t count = ilist.size();
+    if (size_ + count > capacity_) {
+        reserve(capacity_ + count);
+    }
+    for (size_t i = size_ + count - 1; i >= index + count; --i) {
+        data_[i] = std::move(data_[i - count]);
+    }
+    std::copy(ilist.begin(), ilist.end(), data_ + index);
+    size_ += count;
+    return data_ + index;
+}
+
+#endif 
