@@ -44,5 +44,18 @@ int main() {
     }
     std::cout << std::endl;
 
+    Vector<int> vec;
+    vec.reserve(10);
+
+    vec.emplace(vec.begin(), 1);
+    vec.emplace(vec.end(), 4, 5);
+    vec.emplace(vec.begin() + 1, 3, 2);
+
+    std::cout << "Vector elements after resize: ";
+    for (auto it = vec.begin(); it != vec.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

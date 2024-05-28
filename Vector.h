@@ -6,7 +6,7 @@
 #include <initializer_list>
 #include <algorithm>
 #include <memory> 
-#include <iterator>
+#include <iterator> 
 #include <limits>
 
 template <typename T>
@@ -15,13 +15,14 @@ private:
     T* data_;
     size_t size_;
     size_t capacity_;
+    std::allocator<T> allocator_;
 
 public:
     Vector() : data_(nullptr), size_(0), capacity_(0) {}
     Vector(const Vector& other);
     Vector(Vector&& other) noexcept;
     Vector(std::initializer_list<T> init_list);
-    ~Vector() { delete[] data_; }
+    ~Vector();
 
     Vector& operator=(const Vector& other);
     Vector& operator=(Vector&& other) noexcept;
@@ -31,6 +32,7 @@ public:
     
     void reserve(size_t new_capacity);
     void shrink_to_fit(); 
+    void resize(size_t count);
     void swap(Vector& other) noexcept;
     void push_back(const T& x);
     void pop_back();
@@ -70,6 +72,7 @@ public:
     const_reverse_iterator rend() const noexcept { return const_reverse_iterator(begin()); }
     const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
     const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
+
     iterator insert(const_iterator pos, const T& x);
     iterator insert(const_iterator pos, T&& x);
     iterator insert(const_iterator pos, size_t count, const T& x);
@@ -77,7 +80,8 @@ public:
     iterator insert(const_iterator pos, InputIt first, InputIt last);
     iterator insert(const_iterator pos, std::initializer_list<T> ilist);
 
-    void resize(size_t count);
+    template <typename... Args>
+    iterator emplace(const_iterator pos, Args&&... args);
 };
 
 template <typename T>
@@ -86,6 +90,12 @@ Vector<T>::Vector(const Vector& other) : data_(nullptr), size_(other.size_), cap
         data_ = new T[capacity_];
         std::copy(other.data_, other.data_ + size_, data_);
     }
+}
+
+template <typename T>
+Vector<T>::~Vector() {
+    clear();
+    allocator_.deallocate(data_, capacity_);
 }
 
 template <typename T>
@@ -389,5 +399,26 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, std::initiali
     size_ += count;
     return data_ + index;
 }
+
+template <typename T>
+template <typename... Args>
+typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... args) {
+    size_t index = pos - cbegin();
+    if (size_ == capacity_) {
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    // Shift elements to the right to make space for the new element
+    if (index < size_) {
+        for (size_t i = size_; i > index; --i) {
+            allocator_.construct(&data_[i], std::move(data_[i - 1]));
+            allocator_.destroy(&data_[i - 1]);
+        }
+    }
+    // Construct the new element in place using the allocator
+    allocator_.construct(&data_[index], std::forward<Args>(args)...);
+    ++size_;
+    return data_ + index;
+}
+
 
 #endif 

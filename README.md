@@ -1,4 +1,4 @@
-# Objektinio užduotis 2
+# Objektinio užduotis 3
   Programa skaičiuojanti galutinį studento rezultatą pagal pateiktus namų darbų ir egzamino rezultatus.
 
 ## Funkcionalumas
@@ -119,10 +119,16 @@
 - v1.1: programa perdaryta naudojant custom klases o ne struktūras.
 - v1.2: pritaikyta rule of five, sukurti move ir copy operatoriai
 - v1.5: klasė padalinta į dvi dalis, viena iš kurių abstrakti bazinė.
+- v2.0: su doxygen sukurta dokumentacija ir padaryti unit testai.
+- v3.0: sukurtas Vector konteineris, testai, setup failas.
 
-## Tyrimas
+## Funkcijų paaiškinimas
 
-Buvo atliktas mokinių dalijimo į 2 konteinerius skirtingų strategijų testavimas, kuris padėjo paoptimizuoti greitį naudojant list ir deque, bet sparta naudojant vector sumažėjo. Visais atvejais 1 stratejija buvo pati lėčiausia ir taip pat ji prasčiausia programos naudojamos vietos atžvilgiu. 
+- front(): grąžiną pirmo vektoriaus nario reikšmę.
+- insert(): į pasirinktą vektoriaus vietą įterpia objektą.
+- shrink_to_fit(): sumažina talpą, kad ji būtu tokia, koks ir dydis.
+- pop_back(): pašalina paskutinį vektoriaus elementą, bet nesumažina jo talpos.
+- begin(): grąžina iteratorių į pirmą vektoriaus narį.
 
 ## Kompiuterio paruošimas programai
 
