@@ -132,9 +132,19 @@
 
 ## Naujo vektoriaus konteinerio palyginimas
 
-|  | std::vector | Vector |
-| :--- | ---- | ---- | ---- |
+#### Atminties perskirstymai
+| Elementų sk. | std::vector | Vector |
+| :--- | ---- | ---- |
 | 100000000 | 27 | 27 |
+
+#### Trukmė užpildant vektorių (5 testų vidurkis)
+| Elementų sk. | std::vector (ms) | Vector (ms) |
+| :--- | ---- | ---- |
+| 10000 | 0 | 0 |
+| 100000 | 2 | 1 |
+| 1000000 | 16 | 4 |
+| 10000000 | 170 | 41 |
+| 100000000 | 1557 | 433 |
 
 ## Kompiuterio paruošimas programai
 

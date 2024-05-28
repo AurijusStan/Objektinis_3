@@ -1,30 +1,41 @@
 #include "Vector.h"
 #include <bits/stdc++.h>
 
+using namespace std;
+using namespace std::chrono;
+
 int main() {
     int sz = 100000000;
-    int resize_count_v1 = 0;
-    int resize_count_v2 = 0;
+    
+    auto start = high_resolution_clock::now();
+
     std::vector<int> v1;
-    Vector<int> v2;
+
     for (int i = 0; i < sz; ++i){
         v1.push_back(i);
-        if(v1.capacity() == v1.size()) {
-            resize_count_v1++;
-        }
     }
+
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
+
+    cout<<"std::vector laikas: "<<duration.count()<<endl;
+
     v1.clear();
+
+    start = high_resolution_clock::now();
+
+    Vector<int> v2;
 
     for (int i = 0; i < sz; ++i) {
         v2.push_back(i);
-        if(v2.capacity() == v2.getSize()) {
-            resize_count_v2++;
-        }
     }
-    v2.clear();
 
-    std::cout << "std::vector: " << resize_count_v1 << std::endl;
-    std::cout << "Vector: " << resize_count_v2 << std::endl;
+    stop = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(stop - start);
+
+    cout<<"Vector laikas: "<<duration.count()<<endl;
+
+    v2.clear();
 
     return 0;
 }
