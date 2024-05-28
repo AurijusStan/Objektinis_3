@@ -82,6 +82,9 @@ public:
 
     template <typename... Args>
     iterator emplace(const_iterator pos, Args&&... args);
+
+    iterator erase(const_iterator pos);
+    iterator erase(const_iterator first, const_iterator last);
 };
 
 template <typename T>
@@ -418,6 +421,43 @@ typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... ar
     allocator_.construct(&data_[index], std::forward<Args>(args)...);
     ++size_;
     return data_ + index;
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::erase(const_iterator pos) {
+    if (pos < cbegin() || pos >= cend()) {
+        throw std::out_of_range("Iterator out of range");
+    }
+
+    size_t index = pos - cbegin();
+    allocator_.destroy(&data_[index]);
+    for (size_t i = index; i < size_ - 1; ++i) {
+        allocator_.construct(&data_[i], std::move(data_[i + 1]));
+        allocator_.destroy(&data_[i + 1]);
+    }
+    --size_;
+    return data_ + index;
+}
+
+template <typename T>
+typename Vector<T>::iterator Vector<T>::erase(const_iterator first, const_iterator last) {
+    if (first < cbegin() || first >= cend() || last < cbegin() || last > cend() || first > last) {
+        throw std::out_of_range("Iterator range out of range");
+    }
+
+    size_t start = first - cbegin();
+    size_t end = last - cbegin();
+    size_t count = end - start;
+
+    for (size_t i = start; i < end; ++i) {
+        allocator_.destroy(&data_[i]);
+    }
+    for (size_t i = end; i < size_; ++i) {
+        allocator_.construct(&data_[i - count], std::move(data_[i]));
+        allocator_.destroy(&data_[i]);
+    }
+    size_ -= count;
+    return data_ + start;
 }
 
 

@@ -102,13 +102,13 @@ void duom::calc(){
     
     sort(ndrez_.begin(), ndrez_.end());
 
-    if(ndrez_.size()!=0){
-        sum=sum/(ndrez_.size());
+    if(ndrez_.getSize()!=0){
+        sum=sum/(ndrez_.getSize());
 
         auto it = ndrez_.begin();
-        advance(it, ndrez_.size()/2);
+        advance(it, ndrez_.getSize()/2);
 
-        if (ndrez_.size()%2==0){
+        if (ndrez_.getSize()%2==0){
             auto it1 = it;
             std::advance(it1, -1);
             med = (*it + *it1) / 2.0;
@@ -206,7 +206,7 @@ void skaitymas(sk &moksk, talpa &mok){
     
     getline(cin, temp);  
 
-    if constexpr (is_same<talpa, vector<duom>>::value){
+    if constexpr (is_same<talpa, Vector<duom>>::value){
         mok.reserve(moksk);
     }
 
@@ -698,7 +698,7 @@ void input(){
         else break;
     }
 
-    vector<duom> mokV;
+    Vector<duom> mokV;
     list<duom> mokL;
     deque<duom> mokD;
 

@@ -27,7 +27,7 @@ TEST_CASE("Move Constructor")
             istringstream is("Vardas1                  Pavarde1                  5       9       4       5       10      8       7       10      10");
             is>>t1;
             duom t2(move(t1));
-            CHECK(t2.vard() == "Vardas2");
+            CHECK(t2.vard() == "Vardas1");
             CHECK_FALSE(t2.galvid() == t1.galvid());
             CHECK(t1.galvid() == 0);
         }
@@ -49,4 +49,13 @@ TEST_CASE("Move Assignment")
             CHECK(t2.pav() == "Dzeimsas");
             CHECK_FALSE(t2.galvid() == t1.galvid());
             CHECK(t1.galvid() == 0);
+        }
+
+
+TEST_CASE("Vector Constructor")
+        {
+        Vector<int> v;
+        CHECK(v.getSize() == 0);
+        CHECK(v.capacity() == 0);
+        CHECK(v.empty() == true);
         }

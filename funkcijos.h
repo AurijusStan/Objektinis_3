@@ -1,7 +1,8 @@
 #ifndef FUNKCIJOS_H  
 #define FUNKCIJOS_H  
 
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
+#include "Vector.h" 
 
 using namespace std;
 using namespace std::chrono;
@@ -51,7 +52,7 @@ class zmogus{
 
 class duom : public zmogus{
     private:
-        vector<int> ndrez_;
+        Vector<int> ndrez_;
         int egzrez_;
         double galvid_, galmed_;
     public:
