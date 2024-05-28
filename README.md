@@ -135,7 +135,7 @@
 #### Atminties perskirstymai
 | Elementų sk. | std::vector | Vector |
 | :--- | ---- | ---- |
-| 100000000 | 27 | 27 |
+| 100000000 | 27 | 28 |
 
 #### Trukmė užpildant vektorių (5 testų vidurkis)
 | Elementų sk. | std::vector (ms) | Vector (ms) |

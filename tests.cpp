@@ -59,3 +59,47 @@ TEST_CASE("Vector Constructor")
         CHECK(v.capacity() == 0);
         CHECK(v.empty() == true);
         }
+TEST_CASE("Vector Resize")
+        {
+        Vector<int> v;
+        v.resize(3);
+        CHECK(v.getSize() == 3);
+        CHECK(v.capacity() == 3);
+
+        v.resize(10, 5);
+        CHECK(v.getSize() == 10);
+        CHECK(v[3] == 5);
+        CHECK(v[8] == 5);
+        }
+TEST_CASE("Vector Reserve")
+        {
+        Vector<int> v;
+        v.reserve(10);
+        CHECK(v.capacity() == 10);
+
+        v.reserve(5);
+        CHECK(v.capacity() == 5);
+        }
+TEST_CASE("Push_back")
+        {
+        Vector<int> v;
+        for(int i=0; i<5; i++){
+                v.push_back(i);
+        }
+
+        CHECK(v.getSize() == 4);
+        CHECK(v[3] == 5);
+        }
+TEST_CASE("Pop_back")
+        {
+        Vector<int> v;
+        for(int i=0; i<5; i++){
+                v.push_back(i);
+        }
+
+        CHECK(v.getSize() == 4);
+
+        v.pop_back();
+
+        CHECK(v.getSize() == 4);
+        }

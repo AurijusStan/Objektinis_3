@@ -44,6 +44,7 @@ public:
     }
     void shrink_to_fit(); 
     void resize(size_t count);
+    void resize(size_t count, const T& x);
     void swap(Vector& other) noexcept;
     void push_back(const T& x);
     void pop_back();
@@ -59,6 +60,8 @@ public:
     void assign(size_t count, const T& x);
     template <typename InputIt>
     void assign(InputIt first, InputIt last);
+    // template <typename InputIt>
+    // void append_range(InputIt first, InputIt last);
 
     T& at(size_t index);
     const T& at(size_t index) const;
@@ -91,8 +94,23 @@ public:
     iterator insert(const_iterator pos, InputIt first, InputIt last);
     iterator insert(const_iterator pos, std::initializer_list<T> ilist);
 
-    template <typename... Args>
-    iterator emplace(const_iterator pos, Args&&... args);
+    // template <typename... Args>
+    // typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... args) {
+    //     size_t index = pos - cbegin();
+    //     if (size_ == capacity_) {
+    //         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    //     }
+    //     if (index < size_) {
+    //         for (size_t i = size_; i > index; --i) {
+    //             allocator_.construct(&data_[i], std::move(data_[i - 1]));
+    //             allocator_.destroy(&data_[i - 1]);
+    //         }
+    //     }
+    //     allocator_.construct(&data_[index], std::forward<Args>(args)...);
+    //     ++size_;
+    //     return data_ + index;
+    // }
+
     template <typename... Args>
     void emplace_back(Args&&... args) {
         if (size_ == capacity_) {
@@ -181,17 +199,6 @@ void Vector<T>::push_back(const T& x) {
     data_[size_++] = x;
 }
 
-// template <typename T>
-// void Vector<T>::reserve(size_t new_capacity) {
-//     if (new_capacity > capacity_) {
-//         T* new_data = new T[new_capacity];
-//         std::copy(data_, data_ + size_, new_data);
-//         delete[] data_;
-//         data_ = new_data;
-//         capacity_ = new_capacity;
-//     }
-// }
-
 template <typename T>
 void Vector<T>::shrink_to_fit() {
     if (capacity_ > size_) {
@@ -210,6 +217,17 @@ void Vector<T>::resize(size_t count) {
     }
     if (count > size_) {
         std::fill(data_ + size_, data_ + count, T());
+    }
+    size_ = count;
+}
+
+template <typename T>
+void resize(size_t count, const T& x) {
+    if (count > capacity_) {
+        reserve(count);
+    }
+    if (count > size_) {
+        std::fill(data_ + size_, data_ + count, x);
     }
     size_ = count;
 }
@@ -422,34 +440,6 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, std::initiali
     size_ += count;
     return data_ + index;
 }
-
-template <typename T>
-template <typename... Args>
-typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... args) {
-    size_t index = pos - cbegin();
-    if (size_ == capacity_) {
-        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
-    }
-    if (index < size_) {
-        for (size_t i = size_; i > index; --i) {
-            allocator_.construct(&data_[i], std::move(data_[i - 1]));
-            allocator_.destroy(&data_[i - 1]);
-        }
-    }
-    allocator_.construct(&data_[index], std::forward<Args>(args)...);
-    ++size_;
-    return data_ + index;
-}
-
-// template <typename T>
-// template <typename... Args>
-// void Vector<T>::emplace_back(Args&&... args) {
-//     if (size_ == capacity_) {
-//         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
-//     }
-//     allocator_.construct(&data_[size_], std::forward<Args>(args)...);
-//     ++size_;
-// }
 
 template <typename T>
 typename Vector<T>::iterator Vector<T>::erase(const_iterator pos) {
