@@ -30,7 +30,18 @@ public:
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
     
-    void reserve(size_t new_capacity);
+    void reserve(size_t new_capacity) {
+        if (new_capacity > capacity_) {
+            T* new_data = allocator_.allocate(new_capacity);
+            for (size_t i = 0; i < size_; ++i) {
+                allocator_.construct(new_data + i, std::move(data_[i]));
+                allocator_.destroy(data_ + i);
+            }
+            allocator_.deallocate(data_, capacity_);
+            data_ = new_data;
+            capacity_ = new_capacity;
+        }
+    }
     void shrink_to_fit(); 
     void resize(size_t count);
     void swap(Vector& other) noexcept;
@@ -82,9 +93,18 @@ public:
 
     template <typename... Args>
     iterator emplace(const_iterator pos, Args&&... args);
+    template <typename... Args>
+    void emplace_back(Args&&... args) {
+        if (size_ == capacity_) {
+            reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+        }
+        allocator_.construct(&data_[size_], std::forward<Args>(args)...);
+        ++size_;
+    }
 
     iterator erase(const_iterator pos);
     iterator erase(const_iterator first, const_iterator last);
+
 };
 
 template <typename T>
@@ -161,16 +181,16 @@ void Vector<T>::push_back(const T& x) {
     data_[size_++] = x;
 }
 
-template <typename T>
-void Vector<T>::reserve(size_t new_capacity) {
-    if (new_capacity > capacity_) {
-        T* new_data = new T[new_capacity];
-        std::copy(data_, data_ + size_, new_data);
-        delete[] data_;
-        data_ = new_data;
-        capacity_ = new_capacity;
-    }
-}
+// template <typename T>
+// void Vector<T>::reserve(size_t new_capacity) {
+//     if (new_capacity > capacity_) {
+//         T* new_data = new T[new_capacity];
+//         std::copy(data_, data_ + size_, new_data);
+//         delete[] data_;
+//         data_ = new_data;
+//         capacity_ = new_capacity;
+//     }
+// }
 
 template <typename T>
 void Vector<T>::shrink_to_fit() {
@@ -410,18 +430,26 @@ typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... ar
     if (size_ == capacity_) {
         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
-    // Shift elements to the right to make space for the new element
     if (index < size_) {
         for (size_t i = size_; i > index; --i) {
             allocator_.construct(&data_[i], std::move(data_[i - 1]));
             allocator_.destroy(&data_[i - 1]);
         }
     }
-    // Construct the new element in place using the allocator
     allocator_.construct(&data_[index], std::forward<Args>(args)...);
     ++size_;
     return data_ + index;
 }
+
+// template <typename T>
+// template <typename... Args>
+// void Vector<T>::emplace_back(Args&&... args) {
+//     if (size_ == capacity_) {
+//         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+//     }
+//     allocator_.construct(&data_[size_], std::forward<Args>(args)...);
+//     ++size_;
+// }
 
 template <typename T>
 typename Vector<T>::iterator Vector<T>::erase(const_iterator pos) {
