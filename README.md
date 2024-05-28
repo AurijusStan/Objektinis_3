@@ -130,6 +130,12 @@
 - pop_back(): pašalina paskutinį vektoriaus elementą, bet nesumažina jo talpos.
 - begin(): grąžina iteratorių į pirmą vektoriaus narį.
 
+## Naujo vektoriaus konteinerio palyginimas
+
+|  | std::vector | Vector |
+| :--- | ---- | ---- | ---- |
+| 100000000 | 27 | 27 |
+
 ## Kompiuterio paruošimas programai
 
 Čia gidas Windows sistemoms.
