@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "Objektinis", "index.html", [
-    [ "Objektinio užduotis 2", "md__r_e_a_d_m_e.html", [
+  [ "Objektinis 3", "index.html", [
+    [ "Objektinio užduotis 3", "md__r_e_a_d_m_e.html", [
       [ "Funkcionalumas", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Perdengti operatoriai", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
       [ "Naudojimosi instrukcijos", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
@@ -35,9 +35,10 @@ var NAVTREE =
       [ "Klasių ir struktūrų spartos palyginimas (naudojant vektorių)", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
       [ "Optimizavimo \"flag'ų\" palyginimas (stud1000000)", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
       [ "Release'ų istorija", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-      [ "Tyrimas", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
-      [ "Kompiuterio paruošimas programai", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
-      [ "Programos diegimas ir paleidimas", "md__r_e_a_d_m_e.html#autotoc_md20", null ]
+      [ "Funkcijų paaiškinimas", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
+      [ "Naujo vektoriaus konteinerio palyginimas", "md__r_e_a_d_m_e.html#autotoc_md19", null ],
+      [ "Kompiuterio paruošimas programai", "md__r_e_a_d_m_e.html#autotoc_md22", null ],
+      [ "Programos diegimas ir paleidimas", "md__r_e_a_d_m_e.html#autotoc_md23", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -52,7 +53,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_vector_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

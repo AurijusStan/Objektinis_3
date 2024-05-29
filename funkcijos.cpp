@@ -757,6 +757,10 @@ void input(){
         }
     }
 
+    char pause;
+    cout<<"\niveskite bet koki nari, kad pratestumete...";
+    cin>>pause;
+
     return;
 }
 

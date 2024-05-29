@@ -1,5 +1,5 @@
 \doxysection{funkcijos.\+h}
-\hypertarget{funkcijos_8h_source}{}\label{funkcijos_8h_source}
+\label{funkcijos_8h_source}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FUNKCIJOS\_H\ \ }}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FUNKCIJOS\_H\ \ }}
@@ -12,7 +12,7 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{using\ }std::setw;}
 \DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::left;}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classzmogus}{zmogus}}\{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }zmogus\{}
 \DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vard\_;}
 \DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ pav\_;}
@@ -23,19 +23,19 @@
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ vard()\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ pav()\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classzmogus}{zmogus}}()\ \{\}}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classzmogus}{\string~zmogus}}()\ \{\}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ zmogus()\ \{\}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \string~zmogus()\ \{\}}
 \DoxyCodeLine{00025\ }
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ c}}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classzmogus}{zmogus}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classzmogus}{zmogus}}\ \&temp)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ zmogus(\textcolor{keyword}{const}\ zmogus\ \&temp)}
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ :\ vard\_(temp.vard\_),\ pav\_(temp.pav\_)\ \{\}}
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ c}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classzmogus}{zmogus}}(\mbox{\hyperlink{classzmogus}{zmogus}}\ \&\&temp)\ noexcept\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ zmogus(zmogus\ \&\&temp)\ noexcept\ }
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ :\ vard\_(move(temp.vard\_)),\ pav\_(move(temp.pav\_))\ \{\}}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ a}}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classzmogus}{zmogus}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classzmogus}{zmogus}}\ \&temp)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ zmogus\&\ operator=(\textcolor{keyword}{const}\ zmogus\ \&temp)\ \{}
 \DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}!=\&temp)\{}
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vard\_=temp.vard\_;}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pav\_=temp.pav\_;}
@@ -44,7 +44,7 @@
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ a}}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classzmogus}{zmogus}}\&\ operator=(\mbox{\hyperlink{classzmogus}{zmogus}}\ \&\&temp)\ \textcolor{keyword}{noexcept}\ \{\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ zmogus\&\ operator=(zmogus\ \&\&temp)\ \textcolor{keyword}{noexcept}\ \{\ }
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}!=\&temp)\{}
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vard\_=move(temp.vard\_);}
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pav\_=move(temp.pav\_);}
@@ -53,30 +53,30 @@
 \DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00051\ \};}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classduom}{duom}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classzmogus}{zmogus}}\{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }duom\ :\ \textcolor{keyword}{public}\ zmogus\{}
 \DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vector}{Vector<int>}}\ ndrez\_;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ Vector<int>\ ndrez\_;}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ egzrez\_;}
 \DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ galvid\_,\ galmed\_;}
 \DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{duom}}()\ :\ galvid\_(0),\ galmed\_(0)\ \{\}}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{\string~duom}}()\ \{\}}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{duom}}(istream\ \&cin);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ duom()\ :\ galvid\_(0),\ galmed\_(0)\ \{\}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \string~duom()\ \{\}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ duom(istream\ \&cin);}
 \DoxyCodeLine{00062\ }
 \DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ c}}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{duom}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&temp)}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classzmogus}{zmogus}}(temp),\ ndrez\_(temp.ndrez\_),\ egzrez\_(temp.egzrez\_),\ galvid\_(temp.galvid\_),\ galmed\_(temp.galmed\_)\ \{\}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ duom(\textcolor{keyword}{const}\ duom\ \&temp)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ :\ zmogus(temp),\ ndrez\_(temp.ndrez\_),\ egzrez\_(temp.egzrez\_),\ galvid\_(temp.galvid\_),\ galmed\_(temp.galmed\_)\ \{\}}
 \DoxyCodeLine{00066\ }
 \DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ c}}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{duom}}(\mbox{\hyperlink{classduom}{duom}}\ \&\&temp)\ noexcept\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classzmogus}{zmogus}}(move(temp)),\ ndrez\_(move(temp.ndrez\_)),\ egzrez\_(move(temp.egzrez\_)),\ galvid\_(move(temp.galvid\_)),\ galmed\_(move(temp.galmed\_))\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ duom(duom\ \&\&temp)\ noexcept\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ :\ zmogus(move(temp)),\ ndrez\_(move(temp.ndrez\_)),\ egzrez\_(move(temp.egzrez\_)),\ galvid\_(move(temp.galvid\_)),\ galmed\_(move(temp.galmed\_))\ \{}
 \DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp.egzrez\_=NULL;}
 \DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp.galvid\_=NULL;}
 \DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp.galmed\_=NULL;}
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00074\ }
 \DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ a}}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{duom}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&temp)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ duom\&\ operator=(\textcolor{keyword}{const}\ duom\ \&temp)\ \{}
 \DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}!=\&temp)\{}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zmogus::operator=(temp);}
 \DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ndrez\_=temp.ndrez\_;}
@@ -88,7 +88,7 @@
 \DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00086\ }
 \DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ move\ a}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classduom}{duom}}\&\ operator=(\mbox{\hyperlink{classduom}{duom}}\ \&\&temp)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ duom\&\ operator=(duom\ \&\&temp)\ \textcolor{keyword}{noexcept}\ \{}
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}!=\&temp)\{}
 \DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zmogus::operator=(move(temp));}
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ndrez\_=move(temp.ndrez\_);}
@@ -120,21 +120,21 @@
 \DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ndGen();}
 \DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ egzGen();}
 \DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ istream\&\ operator>>(istream\ \&cin,\ \mbox{\hyperlink{classduom}{duom}}\ \&s);}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ ostream\&\ operator<<(ostream\ \&cout,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&s);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ istream\&\ operator>>(istream\ \&cin,\ duom\ \&s);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ ostream\&\ operator<<(ostream\ \&cout,\ \textcolor{keyword}{const}\ duom\ \&s);}
 \DoxyCodeLine{00122\ }
 \DoxyCodeLine{00123\ \};}
 \DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \textcolor{keywordtype}{bool}\ sort1(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00126\ \textcolor{keywordtype}{bool}\ sort2(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00127\ \textcolor{keywordtype}{bool}\ sort3(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00128\ \textcolor{keywordtype}{bool}\ sort4(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00129\ \textcolor{keywordtype}{bool}\ sort1u(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00130\ \textcolor{keywordtype}{bool}\ sort2u(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00131\ \textcolor{keywordtype}{bool}\ sort3u(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00132\ \textcolor{keywordtype}{bool}\ sort4u(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&);}
-\DoxyCodeLine{00133\ \textcolor{keywordtype}{bool}\ pagalVid(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ d);}
-\DoxyCodeLine{00134\ \textcolor{keywordtype}{bool}\ pagalMed(\textcolor{keyword}{const}\ \mbox{\hyperlink{classduom}{duom}}\ \&x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ d);}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{bool}\ sort1(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{bool}\ sort2(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{bool}\ sort3(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{bool}\ sort4(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{bool}\ sort1u(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{bool}\ sort2u(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{bool}\ sort3u(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{bool}\ sort4u(\textcolor{keyword}{const}\ duom\ \&,\ \textcolor{keyword}{const}\ duom\ \&);}
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{bool}\ pagalVid(\textcolor{keyword}{const}\ duom\ \&x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ d);}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{bool}\ pagalMed(\textcolor{keyword}{const}\ duom\ \&x,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ d);}
 \DoxyCodeLine{00135\ }
 \DoxyCodeLine{00136\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ sk=\textcolor{keywordtype}{int},\ \textcolor{keyword}{typename}\ talpa>}
 \DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ rusiuoti(sk\ \&,\ sk\ \&,\ talpa\ \&);}
