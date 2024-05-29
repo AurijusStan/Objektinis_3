@@ -31,29 +31,19 @@ public:
     const T& operator[](size_t index) const;
     
     void reserve(size_t new_capacity) {
-    if (new_capacity > capacity_) {
-        T* new_data = allocator_.allocate(new_capacity);
-        for (size_t i = 0; i < size_; ++i) {
-            allocator_.construct(new_data + i, std::move(data_[i]));
-            allocator_.destroy(data_ + i);
-        }
-        allocator_.deallocate(data_, capacity_);
-        data_ = new_data;
-        capacity_ = new_capacity;
-    } else if (new_capacity < capacity_) {
-        T* new_data = allocator_.allocate(new_capacity);
-        for (size_t i = 0; i < new_capacity; ++i) {
-            allocator_.construct(new_data + i, std::move(data_[i]));
-            allocator_.destroy(data_ + i);
-        }
-        allocator_.deallocate(data_, capacity_);
-        data_ = new_data;
-        capacity_ = new_capacity;
-        if (size_ > new_capacity) {
-            size_ = new_capacity;
-        }
-    }
-}
+        if (new_capacity > capacity_) {
+            T* new_data = allocator_.allocate(new_capacity);
+            for (size_t i = 0; i < size_; ++i) {
+                allocator_.construct(&new_data[i], std::move(data_[i]));
+                allocator_.destroy(&data_[i]);
+            }
+            if(data_){
+                allocator_.deallocate(data_, capacity_);
+            }
+            data_ = new_data;
+            capacity_ = new_capacity;
+        } 
+    }   
 
     void shrink_to_fit(); 
     void resize(size_t count);
@@ -141,10 +131,13 @@ public:
 template <typename T>
 Vector<T>::Vector(const Vector& other) : data_(nullptr), size_(other.size_), capacity_(other.capacity_) {
     if (capacity_ > 0) {
-        data_ = new T[capacity_];
-        std::copy(other.data_, other.data_ + size_, data_);
+        data_ = allocator_.allocate(capacity_);
+        for (size_t i = 0; i < size_; ++i) {
+            allocator_.construct(&data_[i], other.data_[i]);
+        }
     }
 }
+
 
 template <typename T>
 Vector<T>::~Vector() {
@@ -426,11 +419,16 @@ template <class InputIt>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, InputIt first, InputIt last) {
     size_t index = pos - cbegin();
     size_t count = std::distance(first, last);
-    if (size_ + count > capacity_) {
-        reserve(capacity_ + count);
+    if (count == 0) {
+        return data_ + index;
     }
-    for (size_t i = size_ + count - 1; i >= index + count; --i) {
-        data_[i] = std::move(data_[i - count]);
+    if (size_ + count > capacity_) {
+        reserve(size_ + count);
+    }
+    if (index < size_) {
+        for (size_t i = size_; i > index; --i) {
+            data_[i + count - 1] = std::move(data_[i - 1]);
+        }
     }
     for (size_t i = 0; i < count; ++i, ++first) {
         data_[index + i] = *first;
@@ -438,6 +436,7 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, InputIt first
     size_ += count;
     return data_ + index;
 }
+
 
 template <typename T>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, std::initializer_list<T> ilist) {
@@ -490,6 +489,5 @@ typename Vector<T>::iterator Vector<T>::erase(const_iterator first, const_iterat
     size_ -= count;
     return data_ + start;
 }
-
 
 #endif 

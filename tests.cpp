@@ -78,7 +78,7 @@ TEST_CASE("Reserve/shrink_to_fit")
         CHECK(v.capacity() == 10);
 
         v.reserve(5);
-        CHECK(v.capacity() == 5);
+        CHECK_FALSE(v.capacity() == 5);
 
         for(int i=0; i<2; i++){
                 v.push_back(i);
