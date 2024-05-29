@@ -27,24 +27,11 @@ public:
     Vector& operator=(const Vector& other);
     Vector& operator=(Vector&& other) noexcept;
     Vector& operator=(std::initializer_list<T> init_list);
+
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
     
-    void reserve(size_t new_capacity) {
-        if (new_capacity > capacity_) {
-            T* new_data = allocator_.allocate(new_capacity);
-            for (size_t i = 0; i < size_; ++i) {
-                allocator_.construct(&new_data[i], std::move(data_[i]));
-                allocator_.destroy(&data_[i]);
-            }
-            if(data_){
-                allocator_.deallocate(data_, capacity_);
-            }
-            data_ = new_data;
-            capacity_ = new_capacity;
-        } 
-    }   
-
+    void reserve(size_t new_capacity);  
     void shrink_to_fit(); 
     void resize(size_t count);
     void resize(size_t count, const T& x);
@@ -115,13 +102,7 @@ public:
     // }
 
     template <typename... Args>
-    void emplace_back(Args&&... args) {
-        if (size_ == capacity_) {
-            reserve(capacity_ == 0 ? 1 : capacity_ * 2);
-        }
-        allocator_.construct(&data_[size_], std::forward<Args>(args)...);
-        ++size_;
-    }
+    void emplace_back(Args&&... args);
 
     iterator erase(const_iterator pos);
     iterator erase(const_iterator first, const_iterator last);
@@ -129,8 +110,10 @@ public:
 };
 
 template <typename T>
-Vector<T>::Vector(const Vector& other) : data_(nullptr), size_(other.size_), capacity_(other.capacity_) {
-    if (capacity_ > 0) {
+Vector<T>::Vector(const Vector& other) : data_(nullptr), size_(0), capacity_(0) {
+    if (other.size_ > 0) {
+        size_ = other.size_;
+        capacity_ = other.capacity_;
         data_ = allocator_.allocate(capacity_);
         for (size_t i = 0; i < size_; ++i) {
             allocator_.construct(&data_[i], other.data_[i]);
@@ -138,23 +121,26 @@ Vector<T>::Vector(const Vector& other) : data_(nullptr), size_(other.size_), cap
     }
 }
 
+template <typename T>
+Vector<T>::Vector(Vector&& other) noexcept : data_(nullptr), size_(0), capacity_(0) {
+    swap(other);
+}
+
+template <typename T>
+Vector<T>::Vector(std::initializer_list<T> init_list) : data_(nullptr), size_(0), capacity_(0) {
+    size_ = init_list.size();
+    capacity_ = init_list.size();
+    data_ = allocator_.allocate(capacity_);
+    size_t i = 0;
+    for (const auto& elem : init_list) {
+        allocator_.construct(&data_[i++], elem);
+    }
+}
 
 template <typename T>
 Vector<T>::~Vector() {
     clear();
     allocator_.deallocate(data_, capacity_);
-}
-
-template <typename T>
-Vector<T>::Vector(Vector&& other) noexcept : data_(other.data_), size_(other.size_), capacity_(other.capacity_) {
-    other.data_ = nullptr;
-    other.size_ = 0;
-    other.capacity_ = 0;
-}
-
-template <typename T>
-Vector<T>::Vector(std::initializer_list<T> init_list) : data_(new T[init_list.size()]), size_(init_list.size()), capacity_(init_list.size()) {
-    std::copy(init_list.begin(), init_list.end(), data_);
 }
 
 template <typename T>
@@ -169,7 +155,8 @@ Vector<T>& Vector<T>::operator=(const Vector& other) {
 template <typename T>
 Vector<T>& Vector<T>::operator=(Vector&& other) noexcept {
     if (this != &other) {
-        delete[] data_;
+        clear();
+        allocator_.deallocate(data_, capacity_);
         data_ = other.data_;
         size_ = other.size_;
         capacity_ = other.capacity_;
@@ -182,69 +169,9 @@ Vector<T>& Vector<T>::operator=(Vector&& other) noexcept {
 
 template <typename T>
 Vector<T>& Vector<T>::operator=(std::initializer_list<T> init_list) {
-    delete[] data_;
-    size_ = init_list.size();
-    capacity_ = init_list.size();
-    data_ = new T[capacity_];
-    std::copy(init_list.begin(), init_list.end(), data_);
+    Vector temp(init_list);
+    swap(temp);
     return *this;
-}
-
-template <typename T>
-void Vector<T>::swap(Vector& other) noexcept {
-    std::swap(data_, other.data_);
-    std::swap(size_, other.size_);
-    std::swap(capacity_, other.capacity_);
-}
-
-template <typename T>
-void Vector<T>::push_back(const T& x) {
-    if (size_ == capacity_) {
-        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
-    }
-    data_[size_++] = x;
-}
-
-template <typename T>
-void Vector<T>::shrink_to_fit() {
-    if (capacity_ > size_) {
-        T* new_data = new T[size_];
-        std::copy(data_, data_ + size_, new_data);
-        delete[] data_;
-        data_ = new_data;
-        capacity_ = size_;
-    }
-}
-
-template <typename T>
-void Vector<T>::resize(size_t count) {
-    if (count > capacity_) {
-        reserve(count);
-    }
-    if (count > size_) {
-        std::fill(data_ + size_, data_ + count, T());
-    }
-    size_ = count;
-}
-
-template <typename T>
-void Vector<T>::resize(size_t count, const T& x) {
-    if (count > capacity_) {
-        reserve(count);
-    }
-    if (count > size_) {
-        std::fill(data_ + size_, data_ + count, x);
-    }
-    size_ = count;
-}
-
-template <typename T>
-void Vector<T>::pop_back() {
-    if (size_ > 0) {
-        --size_;
-    } else {
-        throw std::out_of_range("Vector is empty");
-    }
 }
 
 template <typename T>
@@ -264,6 +191,87 @@ const T& Vector<T>::operator[](size_t index) const {
 }
 
 template <typename T>
+void Vector<T>::reserve(size_t new_capacity) {
+    if (new_capacity > capacity_) {
+        T* new_data = allocator_.allocate(new_capacity);
+        for (size_t i = 0; i < size_; ++i) {
+            allocator_.construct(&new_data[i], std::move(data_[i]));
+            allocator_.destroy(&data_[i]);
+        }
+        allocator_.deallocate(data_, capacity_);
+        data_ = new_data;
+        capacity_ = new_capacity;
+    }
+}
+
+template <typename T>
+void Vector<T>::shrink_to_fit() {
+    if (capacity_ > size_) {
+        T* new_data = allocator_.allocate(size_);
+        for (size_t i = 0; i < size_; ++i) {
+            allocator_.construct(&new_data[i], std::move(data_[i]));
+            allocator_.destroy(&data_[i]);
+        }
+        allocator_.deallocate(data_, capacity_);
+        data_ = new_data;
+        capacity_ = size_;
+    }
+}
+
+template <typename T>
+void Vector<T>::resize(size_t count) {
+    if (count > capacity_) {
+        reserve(count);
+    }
+    if (count > size_) {
+        for (size_t i = size_; i < count; ++i) {
+            allocator_.construct(&data_[i], T());
+        }
+    } else {
+        for (size_t i = count; i < size_; ++i) {
+            allocator_.destroy(&data_[i]);
+        }
+    }
+    size_ = count;
+}
+
+template <typename T>
+void Vector<T>::resize(size_t count, const T& x) {
+    if (count > capacity_) {
+        reserve(count);
+    }
+    if (count > size_) {
+        for (size_t i = size_; i < count; ++i) {
+            allocator_.construct(&data_[i], x);
+        }
+    } else {
+        for (size_t i = count; i < size_; ++i) {
+            allocator_.destroy(&data_[i]);
+        }
+    }
+    size_ = count;
+}
+
+template <typename T>
+void Vector<T>::push_back(const T& x) {
+    if (size_ == capacity_) {
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    allocator_.construct(&data_[size_], x);
+    ++size_;
+}
+
+template <typename T>
+void Vector<T>::pop_back() {
+    if (size_ > 0) {
+        allocator_.destroy(&data_[size_ - 1]);
+        --size_;
+    } else {
+        throw std::out_of_range("Vector is empty");
+    }
+}
+
+template <typename T>
 size_t Vector<T>::getSize() const {
     return size_;
 }
@@ -280,6 +288,9 @@ bool Vector<T>::empty() const {
 
 template <typename T>
 void Vector<T>::clear() noexcept {
+    for (size_t i = 0; i < size_; ++i) {
+        allocator_.destroy(&data_[i]);
+    }
     size_ = 0;
 }
 
@@ -316,22 +327,41 @@ const T& Vector<T>::back() const {
 }
 
 template <typename T>
+void Vector<T>::swap(Vector& other) noexcept {
+    std::swap(data_, other.data_);
+    std::swap(size_, other.size_);
+    std::swap(capacity_, other.capacity_);
+}
+
+template <typename T>
 void Vector<T>::assign(size_t count, const T& x) {
-    delete[] data_;
+    clear();
+    if (capacity_ < count) {
+        allocator_.deallocate(data_, capacity_);
+        capacity_ = count;
+        data_ = allocator_.allocate(capacity_);
+    }
+    for (size_t i = 0; i < count; ++i) {
+        allocator_.construct(&data_[i], x);
+    }
     size_ = count;
-    capacity_ = count;
-    data_ = new T[capacity_];
-    std::fill(data_, data_ + size_, x);
 }
 
 template <typename T>
 template <typename InputIt>
 void Vector<T>::assign(InputIt first, InputIt last) {
-    delete[] data_;
-    size_ = std::distance(first, last);
-    capacity_ = size_;
-    data_ = new T[capacity_];
-    std::copy(first, last, data_);
+    clear();
+    size_t count = std::distance(first, last);
+    if (capacity_ < count) {
+        allocator_.deallocate(data_, capacity_);
+        capacity_ = count;
+        data_ = allocator_.allocate(capacity_);
+    }
+    size_t i = 0;
+    for (auto it = first; it != last; ++it) {
+        allocator_.construct(&data_[i++], *it);
+    }
+    size_ = count;
 }
 
 template <typename T>
@@ -362,7 +392,7 @@ const T* Vector<T>::data() const noexcept {
 
 template <typename T>
 std::allocator<T> Vector<T>::get_allocator() const {
-    return std::allocator<T>();
+    return allocator_;
 }
 
 template <typename T>
@@ -377,9 +407,10 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, const T& x) {
         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
     for (size_t i = size_; i > index; --i) {
-        data_[i] = std::move(data_[i - 1]);
+        allocator_.construct(&data_[i], std::move(data_[i - 1]));
+        allocator_.destroy(&data_[i - 1]);
     }
-    data_[index] = x;
+    allocator_.construct(&data_[index], x);
     ++size_;
     return data_ + index;
 }
@@ -391,9 +422,10 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, T&& x) {
         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
     for (size_t i = size_; i > index; --i) {
-        data_[i] = std::move(data_[i - 1]);
+        allocator_.construct(&data_[i], std::move(data_[i - 1]));
+        allocator_.destroy(&data_[i - 1]);
     }
-    data_[index] = std::move(x);
+    allocator_.construct(&data_[index], std::move(x));
     ++size_;
     return data_ + index;
 }
@@ -402,13 +434,14 @@ template <typename T>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, size_t count, const T& x) {
     size_t index = pos - cbegin();
     if (size_ + count > capacity_) {
-        reserve(capacity_ + count);
+        reserve(size_ + count);
     }
-    for (size_t i = size_ + count - 1; i >= index + count; --i) {
-        data_[i] = std::move(data_[i - count]);
+    for (size_t i = size_; i > index; --i) {
+        allocator_.construct(&data_[i + count - 1], std::move(data_[i - 1]));
+        allocator_.destroy(&data_[i - 1]);
     }
     for (size_t i = 0; i < count; ++i) {
-        data_[index + i] = x;
+        allocator_.construct(&data_[index + i], x);
     }
     size_ += count;
     return data_ + index;
@@ -419,38 +452,34 @@ template <class InputIt>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, InputIt first, InputIt last) {
     size_t index = pos - cbegin();
     size_t count = std::distance(first, last);
-    if (count == 0) {
-        return data_ + index;
-    }
     if (size_ + count > capacity_) {
         reserve(size_ + count);
     }
-    if (index < size_) {
-        for (size_t i = size_; i > index; --i) {
-            data_[i + count - 1] = std::move(data_[i - 1]);
-        }
+    for (size_t i = size_; i > index; --i) {
+        allocator_.construct(&data_[i + count - 1], std::move(data_[i - 1]));
+        allocator_.destroy(&data_[i - 1]);
     }
-    for (size_t i = 0; i < count; ++i, ++first) {
-        data_[index + i] = *first;
+    size_t i = 0;
+    for (auto it = first; it != last; ++it, ++i) {
+        allocator_.construct(&data_[index + i], *it);
     }
     size_ += count;
     return data_ + index;
 }
 
-
 template <typename T>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, std::initializer_list<T> ilist) {
-    size_t index = pos - cbegin();
-    size_t count = ilist.size();
-    if (size_ + count > capacity_) {
-        reserve(capacity_ + count);
+    return insert(pos, ilist.begin(), ilist.end());
+}
+
+template <typename T>
+template <typename... Args>
+void Vector<T>::emplace_back(Args&&... args) {
+    if (size_ == capacity_) {
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
     }
-    for (size_t i = size_ + count - 1; i >= index + count; --i) {
-        data_[i] = std::move(data_[i - count]);
-    }
-    std::copy(ilist.begin(), ilist.end(), data_ + index);
-    size_ += count;
-    return data_ + index;
+    allocator_.construct(&data_[size_], std::forward<Args>(args)...);
+    ++size_;
 }
 
 template <typename T>
@@ -471,23 +500,25 @@ typename Vector<T>::iterator Vector<T>::erase(const_iterator pos) {
 
 template <typename T>
 typename Vector<T>::iterator Vector<T>::erase(const_iterator first, const_iterator last) {
-    if (first < cbegin() || first >= cend() || last < cbegin() || last > cend() || first > last) {
+    if (first < cbegin() || last > cend() || first >= last) {
         throw std::out_of_range("Iterator range out of range");
     }
 
-    size_t start = first - cbegin();
-    size_t end = last - cbegin();
-    size_t count = end - start;
+    size_t first_index = first - cbegin();
+    size_t last_index = last - cbegin();
+    size_t count = last_index - first_index;
 
-    for (size_t i = start; i < end; ++i) {
+    for (size_t i = first_index; i < last_index; ++i) {
         allocator_.destroy(&data_[i]);
     }
-    for (size_t i = end; i < size_; ++i) {
+
+    for (size_t i = last_index; i < size_; ++i) {
         allocator_.construct(&data_[i - count], std::move(data_[i]));
         allocator_.destroy(&data_[i]);
     }
+
     size_ -= count;
-    return data_ + start;
+    return data_ + first_index;
 }
 
-#endif 
+#endif

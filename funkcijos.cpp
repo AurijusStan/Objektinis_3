@@ -191,11 +191,8 @@ void strategija1(talpa &x, talpa &y, sk t, talpa &z){
     }
 
     if(tarp!=end){
-        cout<<"amangas"<<endl;
         y.insert(y.end(), tarp, end);
-        cout<<"amangas"<<endl;
         z.insert(z.end(), begin, tarp);
-        cout<<"amangas"<<endl;
         x.erase(x.begin(), x.end());
     }
 }
