@@ -1,5 +1,7 @@
 *.o
-*.exe
+a.exe
+prog.exe
+test_prog.exe
 *.txt
 .vscode/settings.json
 .vscode/tasks.json
