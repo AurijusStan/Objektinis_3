@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -52,23 +48,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('classduom.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,6 +69,7 @@ $(function(){initNavTree('classduom.html',''); initResizable(); });
 </div>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">duom Member List</div></div>
 </div><!--header-->
@@ -97,45 +77,42 @@ $(function(){initNavTree('classduom.html',''); initResizable(); });
 
 <p>This is the complete list of members for <a class="el" href="classduom.html">duom</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>calc</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>duom</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>duom</b>(istream &amp;cin) (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>duom</b>(const duom &amp;temp) (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>duom</b>(duom &amp;&amp;temp) noexcept (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>egz</b>(int egz) (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>egzGen</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>galmed</b>() const (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>galvid</b>() const (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>nd</b>(int nd) (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ndGen</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>operator&lt;&lt;</b> (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator=</b>(const duom &amp;temp) (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>operator=</b>(duom &amp;&amp;temp) noexcept (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator=</b>(const zmogus &amp;temp) (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>operator=</b>(zmogus &amp;&amp;temp) noexcept (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator&gt;&gt;</b> (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>pav</b>() const override (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>pav_</b> (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>pavarde</b>(const string &amp;pa) override (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>skaitduom</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>spausdinti</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>vard</b>() const override (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>vard_</b> (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>vardas</b>(const string &amp;va) override (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>vardoGen</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>vpskait</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>zmogus</b>() (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>zmogus</b>(const zmogus &amp;temp) (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>zmogus</b>(zmogus &amp;&amp;temp) noexcept (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~duom</b>() (defined in <a class="el" href="classduom.html">duom</a>)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>~zmogus</b>() (defined in <a class="el" href="classzmogus.html">zmogus</a>)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a02a4801fae4b415d80dcdcce0bb0e2b6">calc</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#a1085cea793f4e67b9521f75055b6b1e7">duom</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a8fcddf88d82255a29a856fba3fdd69b1">duom</a>(istream &amp;cin)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#aa725204967621f0f7c438bf0f33f2804">duom</a>(const duom &amp;temp)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#ab8dea41245c719735a9349c226dfd2f3">duom</a>(duom &amp;&amp;temp) noexcept</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#a41b037e7783a190613eb9f05017df2e7">egz</a>(int egz)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a3154180a90d77a2f017bf7b2663bc892">egzGen</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#aa08301bcfde152a0132b1ade1f5bb826">galmed</a>() const</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a94f40f40c5a095b8e8fbb52353fff07e">galvid</a>() const</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#a8f8db0ff13cbaee6ca547aec09dd5705">nd</a>(int nd)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a72bdabd71d04427344c331c12d1306d0">ndGen</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#adb34864c11010d871f00788be9a34dd1">operator&lt;&lt;</a></td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#afb2b38095f8d4473028ed32cdaa1f634">operator=</a>(const duom &amp;temp)</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#a8af4ca1c0870e11ae1a6ddf6ca6a01d9">operator=</a>(duom &amp;&amp;temp) noexcept</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classzmogus.html#ac4de86cfda583414009836e26c424eb9">zmogus::operator=</a>(const zmogus &amp;temp)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classzmogus.html#a57e4db5b0ae6e078409b762c4c4e9a89">zmogus::operator=</a>(zmogus &amp;&amp;temp) noexcept</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#af0841024746a0de50ae1718453cc364d">operator&gt;&gt;</a></td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#a54446c5e65a7cfb05d983e5e6f4d0ba5">pav</a>() const override</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a></td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#ae3be637f4c36d1cc144ffdaca6036add">pavarde</a>(const string &amp;pa) override</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#aa1e988ad383977ce3fbef1baf1aa5627">skaitduom</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#ad291bec69e147572d16e496101611d6e">spausdinti</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a5e18511057734916301f7d97e92690ff">vard</a>() const override</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a></td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#ae08ab9f519f25998b44825f693b566a3">vardas</a>(const string &amp;va) override</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classduom.html#ae972efadb0f30b85a231c78a853b09a8">vardoGen</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a7ef24b3c24a949e5a27600a767f1a1fd">vpskait</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classzmogus.html#a3cb03824ec8269cf401cbf615e440833">zmogus</a>()</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classzmogus.html#a7b22caf449bb92caa9fdb78ffd9c1f68">zmogus</a>(const zmogus &amp;temp)</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classzmogus.html#a533231ecd56ba7b9a5731f4712e51d63">zmogus</a>(zmogus &amp;&amp;temp) noexcept</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classduom.html#a7873121c8e39000b4182dc82b66439bf">~duom</a>()</td><td class="entry"><a class="el" href="classduom.html">duom</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classzmogus.html#a03d8b774303f436c2d94a8341b0dce3a">~zmogus</a>()</td><td class="entry"><a class="el" href="classzmogus.html">zmogus</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

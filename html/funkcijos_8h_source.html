@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -58,22 +54,6 @@ $(function() { codefold.init(0); });
 /* @license-end */
 </script>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('funkcijos_8h_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -99,11 +79,11 @@ $(function(){initNavTree('funkcijos_8h_source.html',''); initResizable(); });
   <div class="headertitle"><div class="title">funkcijos.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FUNKCIJOS_H  </span></div>
+<a href="funkcijos_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FUNKCIJOS_H  </span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FUNKCIJOS_H  </span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;bits/stdc++.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Vector.h&quot;</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_vector_8h.html">Vector.h</a>&quot;</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using namespace </span>std::chrono;</div>
@@ -113,43 +93,51 @@ $(function(){initNavTree('funkcijos_8h_source.html',''); initResizable(); });
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classzmogus.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classzmogus.html">zmogus</a>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordtype">string</span> vard_;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordtype">string</span> pav_;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">   14</a></span>        <span class="keywordtype">string</span> <a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">   15</a></span>        <span class="keywordtype">string</span> <a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">public</span>:  </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> vardas(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;va) = 0;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> pavarde(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;pa) = 0;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classzmogus.html#a534b69dadf35f452ffb38b06801e8ae9">   17</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classzmogus.html#a534b69dadf35f452ffb38b06801e8ae9">vardas</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;va) = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classzmogus.html#a217e2679f183dea9a3155bb6cd7ebe53">   18</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classzmogus.html#a217e2679f183dea9a3155bb6cd7ebe53">pavarde</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;pa) = 0;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keyword">virtual</span> <span class="keywordtype">string</span> vard() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">virtual</span> <span class="keywordtype">string</span> pav() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classzmogus.html#a5d822805becf4b1d3e2626f59eb6a08d">   20</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code hl_function" href="classzmogus.html#a5d822805becf4b1d3e2626f59eb6a08d">vard</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classzmogus.html#a03047eed7e761d40372ff6f0e3bd2016">   21</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">string</span> <a class="code hl_function" href="classzmogus.html#a03047eed7e761d40372ff6f0e3bd2016">pav</a>() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>() {}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="classzmogus.html">~zmogus</a>() {}</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classzmogus.html#a3cb03824ec8269cf401cbf615e440833">   23</a></span>        <a class="code hl_function" href="classzmogus.html#a3cb03824ec8269cf401cbf615e440833">zmogus</a>() {}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classzmogus.html#a03d8b774303f436c2d94a8341b0dce3a">   24</a></span>        <a class="code hl_function" href="classzmogus.html#a03d8b774303f436c2d94a8341b0dce3a">~zmogus</a>() {}</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// copy c</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>(<span class="keyword">const</span> <a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;temp)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            : vard_(temp.vard_), pav_(temp.pav_) {}</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classzmogus.html#a7b22caf449bb92caa9fdb78ffd9c1f68">   27</a></span>        <a class="code hl_function" href="classzmogus.html#a7b22caf449bb92caa9fdb78ffd9c1f68">zmogus</a>(<span class="keyword">const</span> <a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;temp)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            : <a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>(temp.<a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>), <a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>(temp.<a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>) {}</div>
+</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">// move c</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>(<a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;&amp;temp) noexcept </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            : vard_(move(temp.vard_)), pav_(move(temp.pav_)) {}</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classzmogus.html#a533231ecd56ba7b9a5731f4712e51d63">   31</a></span>        <a class="code hl_function" href="classzmogus.html#a533231ecd56ba7b9a5731f4712e51d63">zmogus</a>(<a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;&amp;temp) noexcept </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            : <a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>(move(temp.vard_)), <a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>(move(temp.pav_)) {}</div>
+</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">// copy a</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;temp) {</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classzmogus.html#ac4de86cfda583414009836e26c424eb9">   35</a></span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>&amp; <a class="code hl_function" href="classzmogus.html#ac4de86cfda583414009836e26c424eb9">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;temp) {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;temp){</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                vard_=temp.vard_;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                pav_=temp.pav_;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                <a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>=temp.<a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                <a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>=temp.<a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            }</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
+</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">// move a</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>&amp; operator=(<a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;&amp;temp) <span class="keyword">noexcept</span> { </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classzmogus.html#a57e4db5b0ae6e078409b762c4c4e9a89">   44</a></span>        <a class="code hl_class" href="classzmogus.html">zmogus</a>&amp; <a class="code hl_function" href="classzmogus.html#a57e4db5b0ae6e078409b762c4c4e9a89">operator=</a>(<a class="code hl_class" href="classzmogus.html">zmogus</a> &amp;&amp;temp) <span class="keyword">noexcept</span> { </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;temp){</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                vard_=move(temp.vard_);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                pav_=move(temp.pav_);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>=move(temp.vard_);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>=move(temp.pav_);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            }</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
+</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
 </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
@@ -160,123 +148,187 @@ $(function(){initNavTree('funkcijos_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">int</span> egzrez_;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">double</span> galvid_, galmed_;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_class" href="classduom.html">duom</a>() : galvid_(0), galmed_(0) {}</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_class" href="classduom.html">~duom</a>() {}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_class" href="classduom.html">duom</a>(istream &amp;cin);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classduom.html#a1085cea793f4e67b9521f75055b6b1e7">   59</a></span>        <a class="code hl_function" href="classduom.html#a1085cea793f4e67b9521f75055b6b1e7">duom</a>() : galvid_(0), galmed_(0) {}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classduom.html#a7873121c8e39000b4182dc82b66439bf">   60</a></span>        <a class="code hl_function" href="classduom.html#a7873121c8e39000b4182dc82b66439bf">~duom</a>() {}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="classduom.html#a1085cea793f4e67b9521f75055b6b1e7">duom</a>(istream &amp;cin);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// copy c</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_class" href="classduom.html">duom</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;temp)</div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classduom.html#aa725204967621f0f7c438bf0f33f2804">   64</a></span>        <a class="code hl_function" href="classduom.html#aa725204967621f0f7c438bf0f33f2804">duom</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;temp)</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            : <a class="code hl_class" href="classzmogus.html">zmogus</a>(temp), ndrez_(temp.ndrez_), egzrez_(temp.egzrez_), galvid_(temp.galvid_), galmed_(temp.galmed_) {}</div>
+</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="comment">// move c</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_class" href="classduom.html">duom</a>(<a class="code hl_class" href="classduom.html">duom</a> &amp;&amp;temp) noexcept </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            : <a class="code hl_class" href="classzmogus.html">zmogus</a>(move(temp)), ndrez_(move(temp.ndrez_)), egzrez_(move(temp.egzrez_)), galvid_(move(temp.galvid_)), galmed_(move(temp.galmed_)) {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                temp.egzrez_=NULL;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                temp.galvid_=NULL;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                temp.galmed_=NULL;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">// copy a</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_class" href="classduom.html">duom</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;temp) {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;temp){</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                zmogus::operator=(temp);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                ndrez_=temp.ndrez_;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                egzrez_=temp.egzrez_;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                galvid_=temp.galvid_;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                galmed_=temp.galmed_;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="comment">// move a</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_class" href="classduom.html">duom</a>&amp; operator=(<a class="code hl_class" href="classduom.html">duom</a> &amp;&amp;temp) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;temp){</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                zmogus::operator=(move(temp));</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                ndrez_=move(temp.ndrez_);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                egzrez_=move(temp.egzrez_);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                temp.egzrez_=NULL;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                galvid_=move(temp.galvid_);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                temp.galvid_=NULL;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                galmed_=move(temp.galmed_);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                temp.galmed_=NULL;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">inline</span> <span class="keywordtype">string</span> vard()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> this-&gt;vard_; }</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keyword">inline</span> <span class="keywordtype">string</span> pav()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> this-&gt;pav_; }</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> galvid()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> galvid_; }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> galmed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> galmed_; }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">void</span> vardas(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;va)<span class="keyword"> override </span>{ this-&gt;vard_=va; }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordtype">void</span> pavarde(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;pa)<span class="keyword"> override </span>{ this-&gt;pav_=pa; }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordtype">void</span> nd(<span class="keywordtype">int</span> nd) { ndrez_.push_back(nd); }</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordtype">void</span> egz(<span class="keywordtype">int</span> egz) { egzrez_=egz; }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordtype">void</span> calc();</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">void</span> vpskait();</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordtype">void</span> skaitduom();</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">void</span> spausdinti();</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordtype">void</span> vardoGen();</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordtype">void</span> ndGen();</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordtype">void</span> egzGen();</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keyword">friend</span> istream&amp; operator&gt;&gt;(istream &amp;cin, <a class="code hl_class" href="classduom.html">duom</a> &amp;s);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keyword">friend</span> ostream&amp; operator&lt;&lt;(ostream &amp;cout, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;s);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classduom.html#ab8dea41245c719735a9349c226dfd2f3">   68</a></span>        <a class="code hl_function" href="classduom.html#ab8dea41245c719735a9349c226dfd2f3">duom</a>(<a class="code hl_class" href="classduom.html">duom</a> &amp;&amp;temp) noexcept </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            : <a class="code hl_function" href="classzmogus.html#a3cb03824ec8269cf401cbf615e440833">zmogus</a>(move(temp)), ndrez_(move(temp.ndrez_)), egzrez_(temp.egzrez_), galvid_(temp.galvid_), galmed_(temp.galmed_) {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                temp.egzrez_={};</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                temp.galvid_={};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                temp.galmed_={};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                temp.ndrez_.<a class="code hl_function" href="class_vector.html#a3260a3cc75735ddf0fb75820d974a66e">clear</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            }</div>
 </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="comment">// copy a</span></div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classduom.html#afb2b38095f8d4473028ed32cdaa1f634">   77</a></span>        <a class="code hl_class" href="classduom.html">duom</a>&amp; <a class="code hl_function" href="classduom.html#afb2b38095f8d4473028ed32cdaa1f634">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;temp) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;temp){</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <a class="code hl_function" href="classzmogus.html#ac4de86cfda583414009836e26c424eb9">zmogus::operator=</a>(temp);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                ndrez_=temp.ndrez_;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                egzrez_=temp.egzrez_;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                galvid_=temp.galvid_;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                galmed_=temp.galmed_;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="comment">// move a</span></div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classduom.html#a8af4ca1c0870e11ae1a6ddf6ca6a01d9">   89</a></span>        <a class="code hl_class" href="classduom.html">duom</a>&amp; <a class="code hl_function" href="classduom.html#a8af4ca1c0870e11ae1a6ddf6ca6a01d9">operator=</a>(<a class="code hl_class" href="classduom.html">duom</a> &amp;&amp;temp) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">if</span>(<span class="keyword">this</span>!=&amp;temp){</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                <a class="code hl_function" href="classzmogus.html#ac4de86cfda583414009836e26c424eb9">zmogus::operator=</a>(move(temp));</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                ndrez_=move(temp.ndrez_);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                egzrez_=move(temp.egzrez_);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                temp.egzrez_={};</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                galvid_=move(temp.galvid_);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                temp.galvid_={};</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                galmed_=move(temp.galmed_);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                temp.galmed_={};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                temp.ndrez_.clear();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classduom.html#a5e18511057734916301f7d97e92690ff">  104</a></span>        <span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code hl_function" href="classduom.html#a5e18511057734916301f7d97e92690ff">vard</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a>; }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classduom.html#a54446c5e65a7cfb05d983e5e6f4d0ba5">  105</a></span>        <span class="keyword">inline</span> <span class="keywordtype">string</span> <a class="code hl_function" href="classduom.html#a54446c5e65a7cfb05d983e5e6f4d0ba5">pav</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">pav_</a>; }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classduom.html#a94f40f40c5a095b8e8fbb52353fff07e">  106</a></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classduom.html#a94f40f40c5a095b8e8fbb52353fff07e">galvid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> galvid_; }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classduom.html#aa08301bcfde152a0132b1ade1f5bb826">  107</a></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classduom.html#aa08301bcfde152a0132b1ade1f5bb826">galmed</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> galmed_; }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classduom.html#ae08ab9f519f25998b44825f693b566a3">  109</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#ae08ab9f519f25998b44825f693b566a3">vardas</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;va)<span class="keyword"> override </span>{ this-&gt;vard_=va; }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classduom.html#ae3be637f4c36d1cc144ffdaca6036add">  110</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#ae3be637f4c36d1cc144ffdaca6036add">pavarde</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;pa)<span class="keyword"> override </span>{ this-&gt;pav_=pa; }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classduom.html#a8f8db0ff13cbaee6ca547aec09dd5705">  111</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#a8f8db0ff13cbaee6ca547aec09dd5705">nd</a>(<span class="keywordtype">int</span> <a class="code hl_function" href="classduom.html#a8f8db0ff13cbaee6ca547aec09dd5705">nd</a>) { ndrez_.<a class="code hl_function" href="class_vector.html#a6f5aa3750c81dc9155442948dcb7bb46">push_back</a>(<a class="code hl_function" href="classduom.html#a8f8db0ff13cbaee6ca547aec09dd5705">nd</a>); }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classduom.html#a41b037e7783a190613eb9f05017df2e7">  112</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#a41b037e7783a190613eb9f05017df2e7">egz</a>(<span class="keywordtype">int</span> <a class="code hl_function" href="classduom.html#a41b037e7783a190613eb9f05017df2e7">egz</a>) { egzrez_=<a class="code hl_function" href="classduom.html#a41b037e7783a190613eb9f05017df2e7">egz</a>; }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#a02a4801fae4b415d80dcdcce0bb0e2b6">calc</a>();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#a7ef24b3c24a949e5a27600a767f1a1fd">vpskait</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classduom.html#aa1e988ad383977ce3fbef1baf1aa5627">  116</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#aa1e988ad383977ce3fbef1baf1aa5627">skaitduom</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#ad291bec69e147572d16e496101611d6e">spausdinti</a>();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#ae972efadb0f30b85a231c78a853b09a8">vardoGen</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#a72bdabd71d04427344c331c12d1306d0">ndGen</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classduom.html#a3154180a90d77a2f017bf7b2663bc892">egzGen</a>();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keyword">friend</span> istream&amp; <a class="code hl_friend" href="classduom.html#af0841024746a0de50ae1718453cc364d">operator&gt;&gt;</a>(istream &amp;cin, <a class="code hl_class" href="classduom.html">duom</a> &amp;s);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classduom.html#adb34864c11010d871f00788be9a34dd1">  123</a></span>        <span class="keyword">friend</span> ostream&amp; <a class="code hl_friend" href="classduom.html#adb34864c11010d871f00788be9a34dd1">operator&lt;&lt;</a>(ostream &amp;cout, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;s);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keywordtype">bool</span> sort1(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">bool</span> sort2(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keywordtype">bool</span> sort3(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keywordtype">bool</span> sort4(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">bool</span> sort1u(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keywordtype">bool</span> sort2u(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">bool</span> sort3u(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">bool</span> sort4u(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keywordtype">bool</span> pagalVid(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;x, <span class="keyword">const</span> <span class="keywordtype">double</span> d);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keywordtype">bool</span> pagalMed(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;x, <span class="keyword">const</span> <span class="keywordtype">double</span> d);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> sk=<span class="keywordtype">int</span>, <span class="keyword">typename</span> talpa&gt;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> rusiuoti(sk &amp;, sk &amp;, talpa &amp;);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk&gt; </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keywordtype">void</span> strategija3(talpa &amp;, talpa &amp;, sk);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk&gt; </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keywordtype">void</span> strategija2(talpa &amp;, talpa &amp;, sk);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk&gt; </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keywordtype">void</span> strategija1(talpa &amp;, talpa &amp;, sk, talpa &amp;);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> sk, <span class="keyword">typename</span> talpa&gt;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keywordtype">void</span> skaitymas(sk &amp;, talpa &amp;);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk=<span class="keywordtype">int</span>&gt;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keywordtype">void</span> isfailo(talpa &amp;, sk &amp;);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> kurtifaila();</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> sk, <span class="keyword">typename</span> talpa&gt;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keywordtype">double</span> rankinis(sk &amp;, talpa &amp;, sk &amp;);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keywordtype">void</span> input();</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keywordtype">void</span> testas();</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdef"><b>Definition</b> Vector.h:13</div></div>
-<div class="ttc" id="aclassduom_html"><div class="ttname"><a href="classduom.html">duom</a></div><div class="ttdef"><b>Definition</b> funkcijos.h:53</div></div>
-<div class="ttc" id="aclasszmogus_html"><div class="ttname"><a href="classzmogus.html">zmogus</a></div><div class="ttdef"><b>Definition</b> funkcijos.h:12</div></div>
-</div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
-<!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><b>funkcijos.h</b></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>};</div>
 </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#adfe6f40a54ddf06982a83d8051d9d24b">sort1</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#a1e799d215c409a48df9781bee4764536">sort2</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#a9743834f2dc2c308ba582f8979dc37ad">sort3</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#a7098388ab72378978a0f389c2e8b0d9c">sort4</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#abe6f59ca4f245f2faae812c9784845ee">sort1u</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#a0565d28d62dd37dd47bc6c72cd3bf819">sort2u</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#ae44ffdac2a796b5db4a86b4307178fc6">sort3u</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#ac2e8a071c13ea21141be4143913262cd">sort4u</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;, <span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#a7b096eb330cd1f5bbd59bbf2b59d4615">pagalVid</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;x, <span class="keyword">const</span> <span class="keywordtype">double</span> d);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keywordtype">bool</span> <a class="code hl_function" href="funkcijos_8h.html#a1f75c0931cd3f9f82b915c585b4736db">pagalMed</a>(<span class="keyword">const</span> <a class="code hl_class" href="classduom.html">duom</a> &amp;x, <span class="keyword">const</span> <span class="keywordtype">double</span> d);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> sk=<span class="keywordtype">int</span>, <span class="keyword">typename</span> talpa&gt;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a651a1dd410c89cfcf6d226b6d2ccb9e6">rusiuoti</a>(sk &amp;, sk &amp;, talpa &amp;);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk&gt; </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a0a225b40a5c2fa6394e3a581e0b409a7">strategija3</a>(talpa &amp;, talpa &amp;, sk);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk&gt; </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a93d228c7a80f579fb46770283135183d">strategija2</a>(talpa &amp;, talpa &amp;, sk);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk&gt; </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#ac9edba39636c1297a09c8d2c5fbd4c0b">strategija1</a>(talpa &amp;, talpa &amp;, sk, talpa &amp;);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> sk, <span class="keyword">typename</span> talpa&gt;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a50fd3c005dfad5f8de76c4058edffb38">skaitymas</a>(sk &amp;, talpa &amp;);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> talpa, <span class="keyword">typename</span> sk=<span class="keywordtype">int</span>&gt;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a2dce608e176c92b503ca8ffc0d7443d4">isfailo</a>(talpa &amp;, sk &amp;);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a8b260317135f6c3ad81d6a553ca2e293">kurtifaila</a>();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> sk, <span class="keyword">typename</span> talpa&gt;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="funkcijos_8h.html#a089362f6e8f9f22e0ba6e2099a727675">  159</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="funkcijos_8h.html#a089362f6e8f9f22e0ba6e2099a727675">rankinis</a>(sk &amp;, talpa &amp;, sk &amp;);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#ac3bdbc826d19fb41ffb25470527c3801">input</a>();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keywordtype">void</span> <a class="code hl_function" href="funkcijos_8h.html#a3ec92fd06cd5803bf3f1ad974518a284">testas</a>();</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_vector_8h_html"><div class="ttname"><a href="_vector_8h.html">Vector.h</a></div></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdef"><b>Definition</b> Vector.h:13</div></div>
+<div class="ttc" id="aclass_vector_html_a3260a3cc75735ddf0fb75820d974a66e"><div class="ttname"><a href="class_vector.html#a3260a3cc75735ddf0fb75820d974a66e">Vector::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdef"><b>Definition</b> Vector.h:276</div></div>
+<div class="ttc" id="aclass_vector_html_a6f5aa3750c81dc9155442948dcb7bb46"><div class="ttname"><a href="class_vector.html#a6f5aa3750c81dc9155442948dcb7bb46">Vector::push_back</a></div><div class="ttdeci">void push_back(const T &amp;x)</div><div class="ttdef"><b>Definition</b> Vector.h:242</div></div>
+<div class="ttc" id="aclassduom_html"><div class="ttname"><a href="classduom.html">duom</a></div><div class="ttdef"><b>Definition</b> funkcijos.h:53</div></div>
+<div class="ttc" id="aclassduom_html_a02a4801fae4b415d80dcdcce0bb0e2b6"><div class="ttname"><a href="classduom.html#a02a4801fae4b415d80dcdcce0bb0e2b6">duom::calc</a></div><div class="ttdeci">void calc()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:97</div></div>
+<div class="ttc" id="aclassduom_html_a1085cea793f4e67b9521f75055b6b1e7"><div class="ttname"><a href="classduom.html#a1085cea793f4e67b9521f75055b6b1e7">duom::duom</a></div><div class="ttdeci">duom()</div><div class="ttdef"><b>Definition</b> funkcijos.h:59</div></div>
+<div class="ttc" id="aclassduom_html_a3154180a90d77a2f017bf7b2663bc892"><div class="ttname"><a href="classduom.html#a3154180a90d77a2f017bf7b2663bc892">duom::egzGen</a></div><div class="ttdeci">void egzGen()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:585</div></div>
+<div class="ttc" id="aclassduom_html_a41b037e7783a190613eb9f05017df2e7"><div class="ttname"><a href="classduom.html#a41b037e7783a190613eb9f05017df2e7">duom::egz</a></div><div class="ttdeci">void egz(int egz)</div><div class="ttdef"><b>Definition</b> funkcijos.h:112</div></div>
+<div class="ttc" id="aclassduom_html_a54446c5e65a7cfb05d983e5e6f4d0ba5"><div class="ttname"><a href="classduom.html#a54446c5e65a7cfb05d983e5e6f4d0ba5">duom::pav</a></div><div class="ttdeci">string pav() const override</div><div class="ttdef"><b>Definition</b> funkcijos.h:105</div></div>
+<div class="ttc" id="aclassduom_html_a5e18511057734916301f7d97e92690ff"><div class="ttname"><a href="classduom.html#a5e18511057734916301f7d97e92690ff">duom::vard</a></div><div class="ttdeci">string vard() const override</div><div class="ttdef"><b>Definition</b> funkcijos.h:104</div></div>
+<div class="ttc" id="aclassduom_html_a72bdabd71d04427344c331c12d1306d0"><div class="ttname"><a href="classduom.html#a72bdabd71d04427344c331c12d1306d0">duom::ndGen</a></div><div class="ttdeci">void ndGen()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:579</div></div>
+<div class="ttc" id="aclassduom_html_a7873121c8e39000b4182dc82b66439bf"><div class="ttname"><a href="classduom.html#a7873121c8e39000b4182dc82b66439bf">duom::~duom</a></div><div class="ttdeci">~duom()</div><div class="ttdef"><b>Definition</b> funkcijos.h:60</div></div>
+<div class="ttc" id="aclassduom_html_a7ef24b3c24a949e5a27600a767f1a1fd"><div class="ttname"><a href="classduom.html#a7ef24b3c24a949e5a27600a767f1a1fd">duom::vpskait</a></div><div class="ttdeci">void vpskait()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:543</div></div>
+<div class="ttc" id="aclassduom_html_a8af4ca1c0870e11ae1a6ddf6ca6a01d9"><div class="ttname"><a href="classduom.html#a8af4ca1c0870e11ae1a6ddf6ca6a01d9">duom::operator=</a></div><div class="ttdeci">duom &amp; operator=(duom &amp;&amp;temp) noexcept</div><div class="ttdef"><b>Definition</b> funkcijos.h:89</div></div>
+<div class="ttc" id="aclassduom_html_a8f8db0ff13cbaee6ca547aec09dd5705"><div class="ttname"><a href="classduom.html#a8f8db0ff13cbaee6ca547aec09dd5705">duom::nd</a></div><div class="ttdeci">void nd(int nd)</div><div class="ttdef"><b>Definition</b> funkcijos.h:111</div></div>
+<div class="ttc" id="aclassduom_html_a94f40f40c5a095b8e8fbb52353fff07e"><div class="ttname"><a href="classduom.html#a94f40f40c5a095b8e8fbb52353fff07e">duom::galvid</a></div><div class="ttdeci">double galvid() const</div><div class="ttdef"><b>Definition</b> funkcijos.h:106</div></div>
+<div class="ttc" id="aclassduom_html_aa08301bcfde152a0132b1ade1f5bb826"><div class="ttname"><a href="classduom.html#aa08301bcfde152a0132b1ade1f5bb826">duom::galmed</a></div><div class="ttdeci">double galmed() const</div><div class="ttdef"><b>Definition</b> funkcijos.h:107</div></div>
+<div class="ttc" id="aclassduom_html_aa1e988ad383977ce3fbef1baf1aa5627"><div class="ttname"><a href="classduom.html#aa1e988ad383977ce3fbef1baf1aa5627">duom::skaitduom</a></div><div class="ttdeci">void skaitduom()</div></div>
+<div class="ttc" id="aclassduom_html_aa725204967621f0f7c438bf0f33f2804"><div class="ttname"><a href="classduom.html#aa725204967621f0f7c438bf0f33f2804">duom::duom</a></div><div class="ttdeci">duom(const duom &amp;temp)</div><div class="ttdef"><b>Definition</b> funkcijos.h:64</div></div>
+<div class="ttc" id="aclassduom_html_ab8dea41245c719735a9349c226dfd2f3"><div class="ttname"><a href="classduom.html#ab8dea41245c719735a9349c226dfd2f3">duom::duom</a></div><div class="ttdeci">duom(duom &amp;&amp;temp) noexcept</div><div class="ttdef"><b>Definition</b> funkcijos.h:68</div></div>
+<div class="ttc" id="aclassduom_html_ad291bec69e147572d16e496101611d6e"><div class="ttname"><a href="classduom.html#ad291bec69e147572d16e496101611d6e">duom::spausdinti</a></div><div class="ttdeci">void spausdinti()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:224</div></div>
+<div class="ttc" id="aclassduom_html_adb34864c11010d871f00788be9a34dd1"><div class="ttname"><a href="classduom.html#adb34864c11010d871f00788be9a34dd1">duom::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;cout, const duom &amp;s)</div></div>
+<div class="ttc" id="aclassduom_html_ae08ab9f519f25998b44825f693b566a3"><div class="ttname"><a href="classduom.html#ae08ab9f519f25998b44825f693b566a3">duom::vardas</a></div><div class="ttdeci">void vardas(const string &amp;va) override</div><div class="ttdef"><b>Definition</b> funkcijos.h:109</div></div>
+<div class="ttc" id="aclassduom_html_ae3be637f4c36d1cc144ffdaca6036add"><div class="ttname"><a href="classduom.html#ae3be637f4c36d1cc144ffdaca6036add">duom::pavarde</a></div><div class="ttdeci">void pavarde(const string &amp;pa) override</div><div class="ttdef"><b>Definition</b> funkcijos.h:110</div></div>
+<div class="ttc" id="aclassduom_html_ae972efadb0f30b85a231c78a853b09a8"><div class="ttname"><a href="classduom.html#ae972efadb0f30b85a231c78a853b09a8">duom::vardoGen</a></div><div class="ttdeci">void vardoGen()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:568</div></div>
+<div class="ttc" id="aclassduom_html_af0841024746a0de50ae1718453cc364d"><div class="ttname"><a href="classduom.html#af0841024746a0de50ae1718453cc364d">duom::operator&gt;&gt;</a></div><div class="ttdeci">friend istream &amp; operator&gt;&gt;(istream &amp;cin, duom &amp;s)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:52</div></div>
+<div class="ttc" id="aclassduom_html_afb2b38095f8d4473028ed32cdaa1f634"><div class="ttname"><a href="classduom.html#afb2b38095f8d4473028ed32cdaa1f634">duom::operator=</a></div><div class="ttdeci">duom &amp; operator=(const duom &amp;temp)</div><div class="ttdef"><b>Definition</b> funkcijos.h:77</div></div>
+<div class="ttc" id="aclasszmogus_html"><div class="ttname"><a href="classzmogus.html">zmogus</a></div><div class="ttdef"><b>Definition</b> funkcijos.h:12</div></div>
+<div class="ttc" id="aclasszmogus_html_a03047eed7e761d40372ff6f0e3bd2016"><div class="ttname"><a href="classzmogus.html#a03047eed7e761d40372ff6f0e3bd2016">zmogus::pav</a></div><div class="ttdeci">virtual string pav() const =0</div></div>
+<div class="ttc" id="aclasszmogus_html_a03d8b774303f436c2d94a8341b0dce3a"><div class="ttname"><a href="classzmogus.html#a03d8b774303f436c2d94a8341b0dce3a">zmogus::~zmogus</a></div><div class="ttdeci">~zmogus()</div><div class="ttdef"><b>Definition</b> funkcijos.h:24</div></div>
+<div class="ttc" id="aclasszmogus_html_a1e46f9f9dfd466d3ee9d454a101ce490"><div class="ttname"><a href="classzmogus.html#a1e46f9f9dfd466d3ee9d454a101ce490">zmogus::vard_</a></div><div class="ttdeci">string vard_</div><div class="ttdef"><b>Definition</b> funkcijos.h:14</div></div>
+<div class="ttc" id="aclasszmogus_html_a217e2679f183dea9a3155bb6cd7ebe53"><div class="ttname"><a href="classzmogus.html#a217e2679f183dea9a3155bb6cd7ebe53">zmogus::pavarde</a></div><div class="ttdeci">virtual void pavarde(const string &amp;pa)=0</div></div>
+<div class="ttc" id="aclasszmogus_html_a3cb03824ec8269cf401cbf615e440833"><div class="ttname"><a href="classzmogus.html#a3cb03824ec8269cf401cbf615e440833">zmogus::zmogus</a></div><div class="ttdeci">zmogus()</div><div class="ttdef"><b>Definition</b> funkcijos.h:23</div></div>
+<div class="ttc" id="aclasszmogus_html_a4145c441f5bcf230bcfc4afdfa889078"><div class="ttname"><a href="classzmogus.html#a4145c441f5bcf230bcfc4afdfa889078">zmogus::pav_</a></div><div class="ttdeci">string pav_</div><div class="ttdef"><b>Definition</b> funkcijos.h:15</div></div>
+<div class="ttc" id="aclasszmogus_html_a533231ecd56ba7b9a5731f4712e51d63"><div class="ttname"><a href="classzmogus.html#a533231ecd56ba7b9a5731f4712e51d63">zmogus::zmogus</a></div><div class="ttdeci">zmogus(zmogus &amp;&amp;temp) noexcept</div><div class="ttdef"><b>Definition</b> funkcijos.h:31</div></div>
+<div class="ttc" id="aclasszmogus_html_a534b69dadf35f452ffb38b06801e8ae9"><div class="ttname"><a href="classzmogus.html#a534b69dadf35f452ffb38b06801e8ae9">zmogus::vardas</a></div><div class="ttdeci">virtual void vardas(const string &amp;va)=0</div></div>
+<div class="ttc" id="aclasszmogus_html_a57e4db5b0ae6e078409b762c4c4e9a89"><div class="ttname"><a href="classzmogus.html#a57e4db5b0ae6e078409b762c4c4e9a89">zmogus::operator=</a></div><div class="ttdeci">zmogus &amp; operator=(zmogus &amp;&amp;temp) noexcept</div><div class="ttdef"><b>Definition</b> funkcijos.h:44</div></div>
+<div class="ttc" id="aclasszmogus_html_a5d822805becf4b1d3e2626f59eb6a08d"><div class="ttname"><a href="classzmogus.html#a5d822805becf4b1d3e2626f59eb6a08d">zmogus::vard</a></div><div class="ttdeci">virtual string vard() const =0</div></div>
+<div class="ttc" id="aclasszmogus_html_a7b22caf449bb92caa9fdb78ffd9c1f68"><div class="ttname"><a href="classzmogus.html#a7b22caf449bb92caa9fdb78ffd9c1f68">zmogus::zmogus</a></div><div class="ttdeci">zmogus(const zmogus &amp;temp)</div><div class="ttdef"><b>Definition</b> funkcijos.h:27</div></div>
+<div class="ttc" id="aclasszmogus_html_ac4de86cfda583414009836e26c424eb9"><div class="ttname"><a href="classzmogus.html#ac4de86cfda583414009836e26c424eb9">zmogus::operator=</a></div><div class="ttdeci">zmogus &amp; operator=(const zmogus &amp;temp)</div><div class="ttdef"><b>Definition</b> funkcijos.h:35</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a0565d28d62dd37dd47bc6c72cd3bf819"><div class="ttname"><a href="funkcijos_8h.html#a0565d28d62dd37dd47bc6c72cd3bf819">sort2u</a></div><div class="ttdeci">bool sort2u(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:20</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a089362f6e8f9f22e0ba6e2099a727675"><div class="ttname"><a href="funkcijos_8h.html#a089362f6e8f9f22e0ba6e2099a727675">rankinis</a></div><div class="ttdeci">double rankinis(sk &amp;, talpa &amp;, sk &amp;)</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a0a225b40a5c2fa6394e3a581e0b409a7"><div class="ttname"><a href="funkcijos_8h.html#a0a225b40a5c2fa6394e3a581e0b409a7">strategija3</a></div><div class="ttdeci">void strategija3(talpa &amp;, talpa &amp;, sk)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:134</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a1e799d215c409a48df9781bee4764536"><div class="ttname"><a href="funkcijos_8h.html#a1e799d215c409a48df9781bee4764536">sort2</a></div><div class="ttdeci">bool sort2(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:8</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a1f75c0931cd3f9f82b915c585b4736db"><div class="ttname"><a href="funkcijos_8h.html#a1f75c0931cd3f9f82b915c585b4736db">pagalMed</a></div><div class="ttdeci">bool pagalMed(const duom &amp;x, const double d)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:129</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a2dce608e176c92b503ca8ffc0d7443d4"><div class="ttname"><a href="funkcijos_8h.html#a2dce608e176c92b503ca8ffc0d7443d4">isfailo</a></div><div class="ttdeci">void isfailo(talpa &amp;, sk &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:230</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a3ec92fd06cd5803bf3f1ad974518a284"><div class="ttname"><a href="funkcijos_8h.html#a3ec92fd06cd5803bf3f1ad974518a284">testas</a></div><div class="ttdeci">void testas()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:771</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a50fd3c005dfad5f8de76c4058edffb38"><div class="ttname"><a href="funkcijos_8h.html#a50fd3c005dfad5f8de76c4058edffb38">skaitymas</a></div><div class="ttdeci">void skaitymas(sk &amp;, talpa &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:201</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a651a1dd410c89cfcf6d226b6d2ccb9e6"><div class="ttname"><a href="funkcijos_8h.html#a651a1dd410c89cfcf6d226b6d2ccb9e6">rusiuoti</a></div><div class="ttdeci">void rusiuoti(sk &amp;, sk &amp;, talpa &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:67</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a7098388ab72378978a0f389c2e8b0d9c"><div class="ttname"><a href="funkcijos_8h.html#a7098388ab72378978a0f389c2e8b0d9c">sort4</a></div><div class="ttdeci">bool sort4(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:14</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a7b096eb330cd1f5bbd59bbf2b59d4615"><div class="ttname"><a href="funkcijos_8h.html#a7b096eb330cd1f5bbd59bbf2b59d4615">pagalVid</a></div><div class="ttdeci">bool pagalVid(const duom &amp;x, const double d)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:126</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a8b260317135f6c3ad81d6a553ca2e293"><div class="ttname"><a href="funkcijos_8h.html#a8b260317135f6c3ad81d6a553ca2e293">kurtifaila</a></div><div class="ttdeci">void kurtifaila()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:456</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a93d228c7a80f579fb46770283135183d"><div class="ttname"><a href="funkcijos_8h.html#a93d228c7a80f579fb46770283135183d">strategija2</a></div><div class="ttdeci">void strategija2(talpa &amp;, talpa &amp;, sk)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:153</div></div>
+<div class="ttc" id="afunkcijos_8h_html_a9743834f2dc2c308ba582f8979dc37ad"><div class="ttname"><a href="funkcijos_8h.html#a9743834f2dc2c308ba582f8979dc37ad">sort3</a></div><div class="ttdeci">bool sort3(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:11</div></div>
+<div class="ttc" id="afunkcijos_8h_html_abe6f59ca4f245f2faae812c9784845ee"><div class="ttname"><a href="funkcijos_8h.html#abe6f59ca4f245f2faae812c9784845ee">sort1u</a></div><div class="ttdeci">bool sort1u(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:17</div></div>
+<div class="ttc" id="afunkcijos_8h_html_ac2e8a071c13ea21141be4143913262cd"><div class="ttname"><a href="funkcijos_8h.html#ac2e8a071c13ea21141be4143913262cd">sort4u</a></div><div class="ttdeci">bool sort4u(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:26</div></div>
+<div class="ttc" id="afunkcijos_8h_html_ac3bdbc826d19fb41ffb25470527c3801"><div class="ttname"><a href="funkcijos_8h.html#ac3bdbc826d19fb41ffb25470527c3801">input</a></div><div class="ttdeci">void input()</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:683</div></div>
+<div class="ttc" id="afunkcijos_8h_html_ac9edba39636c1297a09c8d2c5fbd4c0b"><div class="ttname"><a href="funkcijos_8h.html#ac9edba39636c1297a09c8d2c5fbd4c0b">strategija1</a></div><div class="ttdeci">void strategija1(talpa &amp;, talpa &amp;, sk, talpa &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:176</div></div>
+<div class="ttc" id="afunkcijos_8h_html_adfe6f40a54ddf06982a83d8051d9d24b"><div class="ttname"><a href="funkcijos_8h.html#adfe6f40a54ddf06982a83d8051d9d24b">sort1</a></div><div class="ttdeci">bool sort1(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:5</div></div>
+<div class="ttc" id="afunkcijos_8h_html_ae44ffdac2a796b5db4a86b4307178fc6"><div class="ttname"><a href="funkcijos_8h.html#ae44ffdac2a796b5db4a86b4307178fc6">sort3u</a></div><div class="ttdeci">bool sort3u(const duom &amp;, const duom &amp;)</div><div class="ttdef"><b>Definition</b> funkcijos.cpp:23</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

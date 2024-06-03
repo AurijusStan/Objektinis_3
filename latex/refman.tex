@@ -141,6 +141,24 @@
   \doxynewunicodechar{²}{${}^{2}$}% Superscript two
   \doxynewunicodechar{³}{${}^{3}$}% Superscript three
   % Hyperlinks
+    % Hyperlinks (required, but should be loaded last)
+    \ifpdf
+      \usepackage[pdftex,pagebackref=true]{hyperref}
+    \else
+      \ifxetex
+        \usepackage[pagebackref=true]{hyperref}
+      \else
+        \usepackage[ps2pdf,pagebackref=true]{hyperref}
+      \fi
+    \fi
+    \hypersetup{%
+      colorlinks=true,%
+      linkcolor=blue,%
+      citecolor=blue,%
+      unicode,%
+      pdftitle={Objektinis 3},%
+      pdfsubject={}%
+    }
   % Custom commands used by the header
   % Custom commands
   \newcommand{\clearemptydoublepage}{%
@@ -165,6 +183,12 @@
 \begin{document}
   \raggedbottom
   % Titlepage & ToC
+    % To avoid duplicate page anchors due to reuse of same numbers for
+    % the index (be it as roman numbers)
+    \hypersetup{pageanchor=false,
+                bookmarksnumbered=true,
+                pdfencoding=unicode
+               }
   \pagenumbering{alph}
   \begin{titlepage}
   \vspace*{7cm}
@@ -179,6 +203,8 @@
   \tableofcontents
   \clearemptydoublepage
   \pagenumbering{arabic}
+  % re-enable anchors again
+  \hypersetup{pageanchor=true}
 %--- Begin generated contents ---
 \input{md__r_e_a_d_m_e}
 \chapter{Hierarchical Index}
@@ -192,7 +218,13 @@
 \input{class_vector}
 \input{classzmogus}
 \chapter{File Documentation}
+\input{funkcijos_8cpp}
+\input{funkcijos_8h}
 \input{funkcijos_8h_source}
+\input{_main_8cpp}
+\input{_r_e_a_d_m_e_8md}
+\input{tests_8cpp}
+\input{_vector_8h}
 \input{_vector_8h_source}
 %--- End generated contents ---
 % Index

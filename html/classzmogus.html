@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -52,23 +48,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('classzmogus.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,6 +69,7 @@ $(function(){initNavTree('classzmogus.html',''); initResizable(); });
 </div>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -98,6 +78,8 @@ $(function(){initNavTree('classzmogus.html',''); initResizable(); });
   <div class="headertitle"><div class="title">zmogus Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="funkcijos_8h_source.html">funkcijos.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for zmogus:</div>
 <div class="dyncontent">
@@ -110,51 +92,346 @@ Inheritance diagram for zmogus:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a534b69dadf35f452ffb38b06801e8ae9" id="r_a534b69dadf35f452ffb38b06801e8ae9"><td class="memItemLeft" align="right" valign="top"><a id="a534b69dadf35f452ffb38b06801e8ae9" name="a534b69dadf35f452ffb38b06801e8ae9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>vardas</b> (const string &amp;va)=0</td></tr>
+<tr class="memitem:a534b69dadf35f452ffb38b06801e8ae9" id="r_a534b69dadf35f452ffb38b06801e8ae9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a534b69dadf35f452ffb38b06801e8ae9">vardas</a> (const string &amp;va)=0</td></tr>
 <tr class="separator:a534b69dadf35f452ffb38b06801e8ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a217e2679f183dea9a3155bb6cd7ebe53" id="r_a217e2679f183dea9a3155bb6cd7ebe53"><td class="memItemLeft" align="right" valign="top"><a id="a217e2679f183dea9a3155bb6cd7ebe53" name="a217e2679f183dea9a3155bb6cd7ebe53"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>pavarde</b> (const string &amp;pa)=0</td></tr>
+<tr class="memitem:a217e2679f183dea9a3155bb6cd7ebe53" id="r_a217e2679f183dea9a3155bb6cd7ebe53"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a217e2679f183dea9a3155bb6cd7ebe53">pavarde</a> (const string &amp;pa)=0</td></tr>
 <tr class="separator:a217e2679f183dea9a3155bb6cd7ebe53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d822805becf4b1d3e2626f59eb6a08d" id="r_a5d822805becf4b1d3e2626f59eb6a08d"><td class="memItemLeft" align="right" valign="top"><a id="a5d822805becf4b1d3e2626f59eb6a08d" name="a5d822805becf4b1d3e2626f59eb6a08d"></a>
-virtual string&#160;</td><td class="memItemRight" valign="bottom"><b>vard</b> () const =0</td></tr>
+<tr class="memitem:a5d822805becf4b1d3e2626f59eb6a08d" id="r_a5d822805becf4b1d3e2626f59eb6a08d"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d822805becf4b1d3e2626f59eb6a08d">vard</a> () const =0</td></tr>
 <tr class="separator:a5d822805becf4b1d3e2626f59eb6a08d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03047eed7e761d40372ff6f0e3bd2016" id="r_a03047eed7e761d40372ff6f0e3bd2016"><td class="memItemLeft" align="right" valign="top"><a id="a03047eed7e761d40372ff6f0e3bd2016" name="a03047eed7e761d40372ff6f0e3bd2016"></a>
-virtual string&#160;</td><td class="memItemRight" valign="bottom"><b>pav</b> () const =0</td></tr>
+<tr class="memitem:a03047eed7e761d40372ff6f0e3bd2016" id="r_a03047eed7e761d40372ff6f0e3bd2016"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03047eed7e761d40372ff6f0e3bd2016">pav</a> () const =0</td></tr>
 <tr class="separator:a03047eed7e761d40372ff6f0e3bd2016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b22caf449bb92caa9fdb78ffd9c1f68" id="r_a7b22caf449bb92caa9fdb78ffd9c1f68"><td class="memItemLeft" align="right" valign="top"><a id="a7b22caf449bb92caa9fdb78ffd9c1f68" name="a7b22caf449bb92caa9fdb78ffd9c1f68"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>zmogus</b> (const <a class="el" href="classzmogus.html">zmogus</a> &amp;temp)</td></tr>
+<tr class="memitem:a3cb03824ec8269cf401cbf615e440833" id="r_a3cb03824ec8269cf401cbf615e440833"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cb03824ec8269cf401cbf615e440833">zmogus</a> ()</td></tr>
+<tr class="separator:a3cb03824ec8269cf401cbf615e440833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03d8b774303f436c2d94a8341b0dce3a" id="r_a03d8b774303f436c2d94a8341b0dce3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03d8b774303f436c2d94a8341b0dce3a">~zmogus</a> ()</td></tr>
+<tr class="separator:a03d8b774303f436c2d94a8341b0dce3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b22caf449bb92caa9fdb78ffd9c1f68" id="r_a7b22caf449bb92caa9fdb78ffd9c1f68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b22caf449bb92caa9fdb78ffd9c1f68">zmogus</a> (const <a class="el" href="classzmogus.html">zmogus</a> &amp;temp)</td></tr>
 <tr class="separator:a7b22caf449bb92caa9fdb78ffd9c1f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533231ecd56ba7b9a5731f4712e51d63" id="r_a533231ecd56ba7b9a5731f4712e51d63"><td class="memItemLeft" align="right" valign="top"><a id="a533231ecd56ba7b9a5731f4712e51d63" name="a533231ecd56ba7b9a5731f4712e51d63"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>zmogus</b> (<a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;temp) noexcept</td></tr>
+<tr class="memitem:a533231ecd56ba7b9a5731f4712e51d63" id="r_a533231ecd56ba7b9a5731f4712e51d63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a533231ecd56ba7b9a5731f4712e51d63">zmogus</a> (<a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;temp) noexcept</td></tr>
 <tr class="separator:a533231ecd56ba7b9a5731f4712e51d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4de86cfda583414009836e26c424eb9" id="r_ac4de86cfda583414009836e26c424eb9"><td class="memItemLeft" align="right" valign="top"><a id="ac4de86cfda583414009836e26c424eb9" name="ac4de86cfda583414009836e26c424eb9"></a>
-<a class="el" href="classzmogus.html">zmogus</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classzmogus.html">zmogus</a> &amp;temp)</td></tr>
+<tr class="memitem:ac4de86cfda583414009836e26c424eb9" id="r_ac4de86cfda583414009836e26c424eb9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzmogus.html">zmogus</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4de86cfda583414009836e26c424eb9">operator=</a> (const <a class="el" href="classzmogus.html">zmogus</a> &amp;temp)</td></tr>
 <tr class="separator:ac4de86cfda583414009836e26c424eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57e4db5b0ae6e078409b762c4c4e9a89" id="r_a57e4db5b0ae6e078409b762c4c4e9a89"><td class="memItemLeft" align="right" valign="top"><a id="a57e4db5b0ae6e078409b762c4c4e9a89" name="a57e4db5b0ae6e078409b762c4c4e9a89"></a>
-<a class="el" href="classzmogus.html">zmogus</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;temp) noexcept</td></tr>
+<tr class="memitem:a57e4db5b0ae6e078409b762c4c4e9a89" id="r_a57e4db5b0ae6e078409b762c4c4e9a89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzmogus.html">zmogus</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57e4db5b0ae6e078409b762c4c4e9a89">operator=</a> (<a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;temp) noexcept</td></tr>
 <tr class="separator:a57e4db5b0ae6e078409b762c4c4e9a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a1e46f9f9dfd466d3ee9d454a101ce490" id="r_a1e46f9f9dfd466d3ee9d454a101ce490"><td class="memItemLeft" align="right" valign="top"><a id="a1e46f9f9dfd466d3ee9d454a101ce490" name="a1e46f9f9dfd466d3ee9d454a101ce490"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>vard_</b></td></tr>
+<tr class="memitem:a1e46f9f9dfd466d3ee9d454a101ce490" id="r_a1e46f9f9dfd466d3ee9d454a101ce490"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e46f9f9dfd466d3ee9d454a101ce490">vard_</a></td></tr>
 <tr class="separator:a1e46f9f9dfd466d3ee9d454a101ce490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4145c441f5bcf230bcfc4afdfa889078" id="r_a4145c441f5bcf230bcfc4afdfa889078"><td class="memItemLeft" align="right" valign="top"><a id="a4145c441f5bcf230bcfc4afdfa889078" name="a4145c441f5bcf230bcfc4afdfa889078"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>pav_</b></td></tr>
+<tr class="memitem:a4145c441f5bcf230bcfc4afdfa889078" id="r_a4145c441f5bcf230bcfc4afdfa889078"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4145c441f5bcf230bcfc4afdfa889078">pav_</a></td></tr>
 <tr class="separator:a4145c441f5bcf230bcfc4afdfa889078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3cb03824ec8269cf401cbf615e440833" name="a3cb03824ec8269cf401cbf615e440833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb03824ec8269cf401cbf615e440833">&#9670;&#160;</a></span>zmogus() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03d8b774303f436c2d94a8341b0dce3a" name="a03d8b774303f436c2d94a8341b0dce3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d8b774303f436c2d94a8341b0dce3a">&#9670;&#160;</a></span>~zmogus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::~zmogus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b22caf449bb92caa9fdb78ffd9c1f68" name="a7b22caf449bb92caa9fdb78ffd9c1f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b22caf449bb92caa9fdb78ffd9c1f68">&#9670;&#160;</a></span>zmogus() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classzmogus.html">zmogus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a533231ecd56ba7b9a5731f4712e51d63" name="a533231ecd56ba7b9a5731f4712e51d63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533231ecd56ba7b9a5731f4712e51d63">&#9670;&#160;</a></span>zmogus() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac4de86cfda583414009836e26c424eb9" name="ac4de86cfda583414009836e26c424eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4de86cfda583414009836e26c424eb9">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzmogus.html">zmogus</a> &amp; zmogus::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classzmogus.html">zmogus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57e4db5b0ae6e078409b762c4c4e9a89" name="a57e4db5b0ae6e078409b762c4c4e9a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57e4db5b0ae6e078409b762c4c4e9a89">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzmogus.html">zmogus</a> &amp; zmogus::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03047eed7e761d40372ff6f0e3bd2016" name="a03047eed7e761d40372ff6f0e3bd2016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03047eed7e761d40372ff6f0e3bd2016">&#9670;&#160;</a></span>pav()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string zmogus::pav </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classduom.html#a54446c5e65a7cfb05d983e5e6f4d0ba5">duom</a>.</p>
+
+</div>
+</div>
+<a id="a217e2679f183dea9a3155bb6cd7ebe53" name="a217e2679f183dea9a3155bb6cd7ebe53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217e2679f183dea9a3155bb6cd7ebe53">&#9670;&#160;</a></span>pavarde()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void zmogus::pavarde </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>pa</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classduom.html#ae3be637f4c36d1cc144ffdaca6036add">duom</a>.</p>
+
+</div>
+</div>
+<a id="a5d822805becf4b1d3e2626f59eb6a08d" name="a5d822805becf4b1d3e2626f59eb6a08d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d822805becf4b1d3e2626f59eb6a08d">&#9670;&#160;</a></span>vard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual string zmogus::vard </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classduom.html#a5e18511057734916301f7d97e92690ff">duom</a>.</p>
+
+</div>
+</div>
+<a id="a534b69dadf35f452ffb38b06801e8ae9" name="a534b69dadf35f452ffb38b06801e8ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a534b69dadf35f452ffb38b06801e8ae9">&#9670;&#160;</a></span>vardas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void zmogus::vardas </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;</td>          <td class="paramname"><span class="paramname"><em>va</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classduom.html#ae08ab9f519f25998b44825f693b566a3">duom</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4145c441f5bcf230bcfc4afdfa889078" name="a4145c441f5bcf230bcfc4afdfa889078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4145c441f5bcf230bcfc4afdfa889078">&#9670;&#160;</a></span>pav_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string zmogus::pav_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e46f9f9dfd466d3ee9d454a101ce490" name="a1e46f9f9dfd466d3ee9d454a101ce490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e46f9f9dfd466d3ee9d454a101ce490">&#9670;&#160;</a></span>vard_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string zmogus::vard_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="funkcijos_8h_source.html">funkcijos.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="classzmogus.html">zmogus</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>
