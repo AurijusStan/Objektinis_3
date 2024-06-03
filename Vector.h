@@ -84,22 +84,8 @@ public:
     iterator insert(const_iterator pos, InputIt first, InputIt last);
     iterator insert(const_iterator pos, std::initializer_list<T> ilist);
 
-    // template <typename... Args>
-    // typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... args) {
-    //     size_t index = pos - cbegin();
-    //     if (size_ == capacity_) {
-    //         reserve(capacity_ == 0 ? 1 : capacity_ * 2);
-    //     }
-    //     if (index < size_) {
-    //         for (size_t i = size_; i > index; --i) {
-    //             allocator_.construct(&data_[i], std::move(data_[i - 1]));
-    //             allocator_.destroy(&data_[i - 1]);
-    //         }
-    //     }
-    //     allocator_.construct(&data_[index], std::forward<Args>(args)...);
-    //     ++size_;
-    //     return data_ + index;
-    // }
+    template <typename... Args>
+    iterator emplace(const_iterator pos, Args&&... args);
 
     template <typename... Args>
     void emplace_back(Args&&... args);
@@ -470,6 +456,24 @@ typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, InputIt first
 template <typename T>
 typename Vector<T>::iterator Vector<T>::insert(const_iterator pos, std::initializer_list<T> ilist) {
     return insert(pos, ilist.begin(), ilist.end());
+}
+
+template <typename T>
+template <typename... Args>
+typename Vector<T>::iterator Vector<T>::emplace(const_iterator pos, Args&&... args) {
+    size_t index = pos - cbegin();
+    if (size_ == capacity_) {
+        reserve(capacity_ == 0 ? 1 : capacity_ * 2);
+    }
+    if (index < size_) {
+        for (size_t i = size_; i > index; --i) {
+            allocator_.construct(&data_[i], std::move(data_[i - 1]));
+            allocator_.destroy(&data_[i - 1]);
+        }
+    }
+    allocator_.construct(&data_[index], std::forward<Args>(args)...);
+    ++size_;
+    return data_ + index;
 }
 
 template <typename T>

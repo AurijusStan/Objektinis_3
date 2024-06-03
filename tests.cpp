@@ -194,4 +194,7 @@ TEST_CASE("emplace")
         v.emplace_back(6);
         CHECK(v.getSize() == 4);
         CHECK(v.back() == 6);
+
+        v.emplace(v.begin()+1, 14);
+        CHECK(v[1] == 14);
         }

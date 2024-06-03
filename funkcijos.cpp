@@ -444,6 +444,10 @@ void isfailo(talpa &mok, sk &s){
 
         cout<<"Zlugusiu spausdinimo laikas: "<<duration.count();
 
+        char pause;
+        cout<<"\niveskite bet koki nari, kad pratestumete...";
+        cin>>pause;
+
         exit(0);
     }
     return;
@@ -764,42 +768,42 @@ void input(){
     return;
 }
 
-// void testas(){
-//     duom t1;
+void testas(){
+    duom t1;
 
-//     // input operation test
-//     istringstream is("Vardas1                  Pavarde1                  5       9       4       5       10      8       7       10      10");
+    // input operation test
+    istringstream is("Vardas1                  Pavarde1                  5       9       4       5       10      8       7       10      10");
 
-//     is>>t1;
+    is>>t1;
 
-//     // output operation test
-//     cout<<t1;
+    // output operation test
+    cout<<t1;
 
-//     // copy constructor test
-//     duom t2(t1);
+    // copy constructor test
+    duom t2(t1);
 
-//     cout<<t2;
+    cout<<t2;
 
-//     // move constructor test
-//     duom t3(move(t2));
+    // move constructor test
+    duom t3(move(t2));
 
-//     cout<<t2;
-//     cout<<t3;
+    cout<<t2;
+    cout<<t3;
 
-//     duom t10;
+    duom t10;
 
-//     istringstream iss("Lebronas Dzeimsas 10 10 10 10 10 10 7 10 9");
+    istringstream iss("Lebronas Dzeimsas 10 10 10 10 10 10 7 10 9");
 
-//     iss>>t10;
+    iss>>t10;
 
-//     // copy assignment test
-//     duom t4=t10;
+    // copy assignment test
+    duom t4=t10;
 
-//     cout<<t4;
+    cout<<t4;
 
-//     // move assignment test
-//     duom t5=move(t10);
+    // move assignment test
+    duom t5=move(t10);
     
-//     cout<<t5;
-//     cout<<t10;
-// }
+    cout<<t5;
+    cout<<t10;
+}
